@@ -1,3 +1,23 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+/* 侧边栏条目单行显示，过长的省略号收尾 */
+.explorer .explorer-content li > a {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 桌面宽屏下稍微加宽左侧栏 */
+@media all and (min-width: 1200px) {
+  .page > #quartz-body {
+    grid-template-columns: 360px auto 320px;
+  }
+}
+
+/* 加宽页面，宽屏下正文更舒展 */
+.page {
+  max-width: 1800px;
+}
