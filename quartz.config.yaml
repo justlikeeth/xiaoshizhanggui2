@@ -13,7 +13,7 @@ configuration:
     - templates
     - .obsidian
   theme:
-    fontOrigin: selfHosted
+    fontOrigin: googleFonts
     cdnCaching: true
     typography:
       header: Schibsted Grotesk
@@ -110,6 +110,8 @@ plugins:
     order: 92
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    options:
+      fontOrigin: local
   - source: "@quartz-themes/core"
     enabled: true
     options:
