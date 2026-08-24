@@ -60,6 +60,7 @@ export default (() => {
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="baidu-site-verification" content="codeva-cF4gV45uhH" />
+        <meta name="sogou_site_verification" content="AyHEhxJ8pH" />
         <meta name="og:site_name" content={cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
