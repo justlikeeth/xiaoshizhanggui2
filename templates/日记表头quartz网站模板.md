@@ -1,7 +1,7 @@
 ---
-title: 
+title: 重构丝绸生意 | 
 date: 2025-12-12
-description: 
+description: 阿
 tags: # 模块，会自成页面
   - 档口运营
   - 产品研发
