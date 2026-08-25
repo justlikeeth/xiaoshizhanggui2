@@ -6,7 +6,7 @@ configuration:
   enablePopovers: true
   analytics:
     provider: plausible
-  locale: en-US
+  locale: en-CN
   baseUrl: xiaoshizhanggui.com
   ignorePatterns:
     - private
@@ -236,8 +236,7 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        © 小施掌柜: https://xiaoshizhanggui.com/about
     layout:
       position: footer
       priority: 50
