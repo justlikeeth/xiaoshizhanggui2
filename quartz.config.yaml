@@ -6,7 +6,7 @@ configuration:
   enablePopovers: true
   analytics:
     provider: plausible
-  locale: en-CN
+  locale: zh-CN
   baseUrl: xiaoshizhanggui.com
   ignorePatterns:
     - private
