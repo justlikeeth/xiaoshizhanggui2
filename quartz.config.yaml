@@ -165,6 +165,7 @@ plugins:
       title: 内容导航
       folderDefaultState: open
       folderClickBehavior: link
+      sortFn: '(a, b) => { if (a.isFolder || b.isFolder) { if (a.isFolder && b.isFolder) return (a.displayName||"").localeCompare(b.displayName||""); return a.isFolder ? -1 : 1 } return (b.displayName||"").localeCompare(a.displayName||"", undefined, {numeric: true, sensitivity: "base"}) }'
     layout:
       position: left
       priority: 50
