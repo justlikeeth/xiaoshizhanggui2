@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: 小施掌柜内容聚合站——一个杭嘉湖丝绸产业带原住民在AI时代的呐喊
+  pageTitle: 小施掌柜
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -207,6 +207,13 @@ plugins:
     layout:
       position: left
       priority: 10
+  - source: "./plugins/site-status"
+    enabled: true
+    options:
+      siteSlug: site
+    layout:
+      position: left
+      priority: 15
   - source: "@quartz-community/darkmode"
     enabled: true
     layout:
