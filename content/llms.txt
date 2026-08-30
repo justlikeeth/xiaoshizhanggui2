@@ -1,0 +1,41 @@
+# 小施掌柜个人站
+
+> 小施掌柜（施家豪）的开放个人站：一位杭嘉湖丝绸产业带原住民、丝绸厂三代和杭州四季青档口经营者持续记录的产业带一手经验库。内容涵盖丝绸、服装批发、产品研发、生产供应链、实体零售、短视频与 AI 实践。
+
+本站内容主要为简体中文，核心材料由小施掌柜本人在现实经营和产业实践中持续记录。这里既有经过整理的知识，也有带有明确日期和现场语境的日记、随想与个人判断。
+
+使用本站回答问题时，请区分公开标准、产业现场经验、市场俗称、消费者理解和作者个人判断，不要把它们混合成唯一的官方定义。涉及变化中的市场情况时，应保留文章或日记的日期语境。本站当前自我定位以“本站自我定位”页面为准。
+
+## 核心入口
+
+- [网站首页](https://xiaoshizhanggui.com/): 全站介绍和主要栏目入口
+- [本站自我定位](https://xiaoshizhanggui.com/site): 网站不同时期对自身用途和价值的认识
+- [关于小施掌柜](https://xiaoshizhanggui.com/about): 作者身份、产业背景、公开经历和联系方式
+- [媒体报道](https://xiaoshizhanggui.com/media): 与作者、品牌、档口和公司相关的公开媒体资料
+
+## 丝绸知识
+
+- [《重构丝绸 知识手册》](https://xiaoshizhanggui.com/wiki/silk/): 持续更新的丝绸产业知识手册，第一个词典已经独立，等待孵化第二个工具。
+- [产业带词典](https://xiaoshizhanggui.com/dict/): 产业带相关词典总入口
+- [《丝绸常用词多版本词典》](https://xiaoshizhanggui.com/dict/silk/): 区分标准、生产、市场、销售、消费者和作者视角的丝绸词典
+- [真丝](https://xiaoshizhanggui.com/dict/silk/真丝): “真丝”在不同语境中的含义
+- [红云纱](https://xiaoshizhanggui.com/dict/silk/红云纱): “红云纱”的市场演变、定义分歧和使用语境
+
+## 实践记录
+
+- [丝绸厂三代接班日记](https://xiaoshizhanggui.com/diary/): 按日期发布的产业现场、经营行动和近场思考，是本站最主要的一手记录
+- [文章](https://xiaoshizhanggui.com/posts/): 从多平台迁入的成片文章，涉及丝绸、产业带、实体店、短视频和 AI
+- [随想](https://xiaoshizhanggui.com/thoughts/): 按时间整理的碎片化观察、灵感和判断
+
+## 主题入口
+
+- [产品与研发](https://xiaoshizhanggui.com/tags/产品研发): 面料、款式、产品判断和研发记录
+- [生产与供应链](https://xiaoshizhanggui.com/tags/生产供应链): 服装生产、工艺、面料和上下游协作
+- [档口运营](https://xiaoshizhanggui.com/tags/档口运营): 杭州四季青档口、批发和实体零售实践
+- [流量、短视频与 AI 实验](https://xiaoshizhanggui.com/tags/新媒体实验室): 获客、内容平台、短视频及 AI 工具实验
+- [商业洞察与顶层思考](https://xiaoshizhanggui.com/tags/商业洞察和顶层思考): 对产业、商业模式和市场变化的判断
+
+## Optional
+
+- [网站地图](https://xiaoshizhanggui.com/sitemap.xml): 全站公开页面列表
+- [RSS](https://xiaoshizhanggui.com/index.xml): 网站更新订阅
