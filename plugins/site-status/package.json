@@ -1,0 +1,33 @@
+{
+  "name": "site-status",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./components": "./components/index.js"
+  },
+  "main": "./index.js",
+  "quartz": {
+    "name": "site-status",
+    "displayName": "Site Status",
+    "description": "Displays the current site status from the /site page frontmatter.",
+    "category": "component",
+    "version": "1.0.0",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 50,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "siteSlug": "site",
+      "separator": " · "
+    },
+    "components": {
+      "SiteStatus": {
+        "displayName": "Site Status",
+        "description": "Current site status and thesis",
+        "defaultPosition": "left",
+        "defaultPriority": 15
+      }
+    }
+  }
+}
