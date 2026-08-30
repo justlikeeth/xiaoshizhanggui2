@@ -27,9 +27,13 @@ export default (() => {
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
     const iconPath = joinSegments(baseDir, "static/icon.png")
 
-    // Url of current page
+    // Url of current page. An index page is served at its folder URL,
+    // so avoid exposing the internal `index` slug in social/canonical metadata.
+    const socialSlug = fileData.slug?.replace(/(^|\/)index$/, "$1") ?? ""
     const socialUrl =
-      fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
+      fileData.slug === "404" || socialSlug === ""
+        ? url.toString()
+        : joinSegments(url.toString(), socialSlug)
 
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some((e) => e.name === "CustomOgImages")
     const ogImageDefaultPath = `https://${cfg.baseUrl}/static/og-image.png`
@@ -84,6 +88,7 @@ export default (() => {
 
         {cfg.baseUrl && (
           <>
+            {fileData.slug !== "404" && <link rel="canonical" href={socialUrl} />}
             <meta property="twitter:domain" content={cfg.baseUrl}></meta>
             <meta property="og:url" content={socialUrl}></meta>
             <meta property="twitter:url" content={socialUrl}></meta>
