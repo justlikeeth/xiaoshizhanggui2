@@ -9,19 +9,23 @@ description: 小施掌柜（施家豪）——杭嘉湖丝绸厂三代，杭州�
 
 ## 媒体报道
 
+### 央视
+- **[浙江杭州：服装市场人潮涌动 新中式成"顶流"](https://tv.cctv.com/2025/01/26/VIDEE7ooBLeaKy1ucV4MLWti250126.shtml)** — CCTV-2《第一时间》，2025-01-26。央视探访四季青服装市场年货消费，新中式成热门，本店小俞出镜，四季青老市场三楼（四季青丝绸源）西湖名片档口。
+- **[助企纾困有"良方"](https://tv.cctv.com/2022/07/07/VIDEPjuGdgaA00eZW7aGbdYD220707.shtml)** — CCTV-2《经济半小时》，2022-07-07。央视深度报道助企纾困政策落地，本店西湖名片及供货产品出镜受访。
+
 ### 电视
 
-- [《"90后"服装老板玩转AI，一秒搞定库存信息》—— 浙江电视台·新蓝网，2025-03](https://www.cztv.com/newsDetail/773433)
+- [《"90后"服装老板玩转AI，一秒搞定库存信息》](https://www.cztv.com/newsDetail/773433)—— 浙江电视台·新蓝网，2025-03
 
 ### 报纸
 
-- [《杭州四季青最牛档口用上AI，90后老板：相当于多了好几个免费助理》—— 潮新闻，2025-02](https://tidenews.com.cn/news.html?id=3058171)（首发深度报道）
-- [《小施老板蛮开心：多了好几个助理》—— 每日商报，2025-03](https://mqjwb.tidenews.com.cn/epaper/article/2025-03-03/4316031)
-- [《四季青一档口率先用上AI》—— 上城报，2025-03](https://hzdaily.hangzhou.com.cn/scb/2025/03/07/article_detail_7_20250307A035.html)
+- [《杭州四季青最牛档口用上AI，90后老板：相当于多了好几个免费助理》](https://tidenews.com.cn/news.html?id=3058171)—— 潮新闻，2025-02（首发深度报道）
+- [《小施老板蛮开心：多了好几个助理》](https://mqjwb.tidenews.com.cn/epaper/article/2025-03-03/4316031)—— 每日商报，2025-03
+- [《四季青一档口率先用上AI》](https://hzdaily.hangzhou.com.cn/scb/2025/03/07/article_detail_7_20250307A035.html)—— 上城报，2025-03
 
 ### 网络
 
-- [《杭州四季青服装市场新风潮：从档口老板到市场服务人员都在"卷"AI》—— 杭州网，2025-03](https://ori.hangzhou.com.cn/ornews/content/2025-03/10/content_8886702.htm)
+- [《杭州四季青服装市场新风潮：从档口老板到市场服务人员都在"卷"AI》](https://ori.hangzhou.com.cn/ornews/content/2025-03/10/content_8886702.htm)—— 杭州网，2025-03
 - 潮新闻报道后被腾讯新闻、搜狐等二十余家媒体转载
 
 ## 全网同名：小施掌柜
