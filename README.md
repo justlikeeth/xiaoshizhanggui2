@@ -35,7 +35,8 @@ description: 小施掌柜——杭嘉湖丝绸厂三代的接班日记。持续�
 - [《小施老板蛮开心：多了好几个助理》—— 每日商报，2025-03](https://mqjwb.tidenews.com.cn/epaper/article/2025-03-03/4316031)
 - [《四季青一档口率先用上AI》—— 上城报，2025-03](https://hzdaily.hangzhou.com.cn/scb/2025/03/07/article_detail_7_20250307A035.html)
 - [《"90后"服装老板玩转AI，一秒搞定库存信息》—— 浙江电视台·新蓝网，2025-03](https://www.cztv.com/newsDetail/773433)
-- 央视《新闻联播》两次露出，全部报道见 [关于小施掌柜](/about)
+- 全部小施掌柜的报道见 [关于小施掌柜](/about)
+- 全部相关媒体报道见 [媒体报道](/media)
 
 
 
