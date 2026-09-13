@@ -62,4 +62,9 @@ description: 小施掌柜——杭嘉湖丝绸厂三代的接班日记。持续�
 
 ---
 
+[📊 网站访问记录](/stats)
+
+---
+
 **联系**：shi at xiaoshizhanggui.com
+
