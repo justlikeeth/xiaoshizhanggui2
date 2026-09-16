@@ -16,23 +16,15 @@ const SiteStatus = (userOptions = {}) => {
     })
 
     const frontmatter = sitePage?.frontmatter ?? {}
-    const status =
-      typeof frontmatter.site_status === "string"
-        ? frontmatter.site_status.trim()
-        : ""
-    const thesis =
-      typeof frontmatter.site_thesis === "string"
-        ? frontmatter.site_thesis.trim()
-        : ""
+    const status = typeof frontmatter.site_status === "string" ? frontmatter.site_status.trim() : ""
+    const thesis = typeof frontmatter.site_thesis === "string" ? frontmatter.site_thesis.trim() : ""
 
     if (!status && !thesis) return null
 
     const text = [status, thesis].filter(Boolean).join(options.separator)
     const pageSlug = String(fileData?.slug ?? "").replace(/^\/+|\/+$/g, "")
     const isHome = pageSlug === "" || pageSlug === "index"
-    const className = [displayClass, "site-status-block"]
-      .filter(Boolean)
-      .join(" ")
+    const className = [displayClass, "site-status-block"].filter(Boolean).join(" ")
 
     return h(
       "div",
@@ -59,7 +51,10 @@ const SiteStatus = (userOptions = {}) => {
               title: "查看网站访问记录",
               "data-site-stats": "",
             },
-            h("span", null, "AI请求 "),
+            h("span", null, "爬虫 "),
+            h("strong", { "data-site-stats-crawlers": "" }, "—"),
+            h("span", { "aria-hidden": "true" }, " · "),
+            h("span", null, "AI "),
             h("strong", { "data-site-stats-ai": "" }, "—"),
             h("span", { "aria-hidden": "true" }, " · "),
             h("span", null, "浏览量 "),
@@ -129,14 +124,22 @@ const loadSiteStats = async () => {
       throw new Error("invalid AI total")
     }
 
+    const crawlerRequests = Number.isFinite(data.crawlerRequests)
+      ? data.crawlerRequests
+      : data.aiRequests
+
+    if (crawlerRequests < 0) throw new Error("invalid crawler total")
+
     if (!Number.isFinite(data.pageViews) || data.pageViews < 0) {
       throw new Error("invalid view total")
     }
 
     const formatter = new Intl.NumberFormat("zh-CN")
+    const crawlers = root.querySelector("[data-site-stats-crawlers]")
     const ai = root.querySelector("[data-site-stats-ai]")
     const views = root.querySelector("[data-site-stats-views]")
 
+    if (crawlers) crawlers.textContent = formatter.format(crawlerRequests)
     if (ai) ai.textContent = formatter.format(data.aiRequests)
     if (views) views.textContent = formatter.format(data.pageViews)
 
