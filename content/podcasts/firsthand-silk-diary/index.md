@@ -26,9 +26,11 @@ description: 《丝绸厂三代接班日记》是一线实战笔记：不剪辑�
 
 巅峰产生虚伪的拥护，黄昏见证虔诚的信徒。时间将见证一切。
 
-- 共 **44** 集
+- 共 **55** 集
 - RSS：`https://feed.xyzfm.space/cwf8r3mlgftp`
 - Apple Podcasts：https://podcasts.apple.com/cn/podcast/id6801034180
+
+口述转写稿：[[transcripts/index|查看已有的口述转写稿]]。
 
 ## 单集列表
 
