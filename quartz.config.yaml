@@ -171,6 +171,23 @@ plugins:
       priority: 50
   - source: "@quartz-community/graph"
     enabled: true
+    options:
+      localGraph:
+        depth: 1
+        showTags: true
+        focusOnHover: true
+        linkDistance: 45
+        # Keep long diary titles visible only when pointing at a node.
+        opacityScale: 0.25
+      globalGraph:
+        # Enlarge the current page's direct links and tags; avoid 400+ unlabeled dots.
+        depth: 1
+        showTags: true
+        enableRadial: false
+        linkDistance: 60
+        repelForce: 0.7
+        fontSize: 0.8
+        opacityScale: 0.25
     layout:
       position: right
       priority: 10

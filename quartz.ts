@@ -6,6 +6,8 @@ import { BuildCtx } from "./quartz/util/ctx"
 import { FilePath, simplifySlug } from "./quartz/util/path"
 import { ProcessedContent } from "./quartz/plugins/vfile"
 import { QuartzEmitterPluginInstance } from "./quartz/plugins/types"
+import { PageTypeDispatcher } from "./quartz/plugins/pageTypes/dispatcher"
+import RelatedReading from "./quartz/components/RelatedReading"
 
 const ITEMS_PER_SECTION = 30
 const CONTENT_SECTIONS = /^(?:diary|posts|thoughts|dict|podcasts|transcripts|wiki)\//
@@ -152,5 +154,16 @@ const editorialRSS: QuartzEmitterPluginInstance = {
 
 const config = await loadQuartzConfig()
 config.plugins.emitters.push(editorialRSS)
+const layout = await loadQuartzLayout()
+layout.defaults.right = [RelatedReading, ...(layout.defaults.right ?? [])]
+for (const pageLayout of Object.values(layout.byPageType)) {
+  pageLayout.right = [RelatedReading, ...(pageLayout.right ?? layout.defaults.right.slice(1))]
+}
+config.plugins.emitters = config.plugins.emitters.map((emitter) =>
+  emitter.name === "PageTypeDispatcher"
+    ? PageTypeDispatcher({ defaults: layout.defaults, byPageType: layout.byPageType })
+    : emitter,
+)
+
 export default config
-export const layout = await loadQuartzLayout()
+export { layout }

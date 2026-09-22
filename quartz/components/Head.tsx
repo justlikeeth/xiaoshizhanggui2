@@ -89,6 +89,12 @@ export default (() => {
         {cfg.baseUrl && (
           <>
             {fileData.slug !== "404" && <link rel="canonical" href={socialUrl} />}
+            <link
+              rel="alternate"
+              type="application/rss+xml"
+              title={`${cfg.pageTitle} RSS`}
+              href={`https://${cfg.baseUrl}/index.xml`}
+            />
             <meta property="twitter:domain" content={cfg.baseUrl}></meta>
             <meta property="og:url" content={socialUrl}></meta>
             <meta property="twitter:url" content={socialUrl}></meta>
