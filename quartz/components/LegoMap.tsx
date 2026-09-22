@@ -3,267 +3,347 @@ import { QuartzComponent } from "./types"
 const LegoMap: QuartzComponent = ({ fileData }) => {
   if (fileData.slug !== "atlas") return null
   return (
-    <section class="xiaoshi-atlas" aria-label="语料积木地图">
-      <div class="atlas-bar">
-        <div class="atlas-heading"><span class="atlas-mark">▦</span><strong>语料积木地图</strong><span class="atlas-count" aria-live="polite">正在加载…</span></div>
-        <div class="atlas-controls">
-          <label><span class="visually-hidden">查找词条或日记</span><input class="atlas-search" type="search" placeholder="查找词条、日记或日期" /></label>
-          <div class="atlas-filters" role="group" aria-label="筛选地图内容">
-            <button type="button" data-filter="all" aria-pressed="true">全部</button>
-            <button type="button" data-filter="dict" aria-pressed="false">词典</button>
-            <button type="button" data-filter="diary" aria-pressed="false">日记</button>
-          </div>
+    <section class="xiaoshi-atlas" aria-label="从知识图谱生长的积木图">
+      <header class="atlas-bar">
+        <div>
+          <div class="atlas-heading"><span class="atlas-mark">▧</span><strong>关系积木图</strong></div>
+          <p class="atlas-subtitle">从一个节点出发，沿真实链接与标签关系逐块向外拼</p>
         </div>
-      </div>
+        <div class="atlas-controls">
+          <label class="atlas-search-label">
+            <span class="visually-hidden">寻找新的起点</span>
+            <input class="atlas-search" type="search" placeholder="寻找新的起点" autocomplete="off" />
+            <span class="atlas-results" hidden />
+          </label>
+          <button class="atlas-reset" type="button">回到起点</button>
+        </div>
+      </header>
       <div class="atlas-layout">
-        <div class="atlas-scroll" role="region" aria-label="可横向滚动的积木地图" tabindex={0}>
-          <svg class="atlas-canvas" role="group" aria-label="按四类词典和最近两个月日记分区排列的积木地图" />
+        <div class="atlas-scroll" role="region" aria-label="可滚动的关系积木图" tabindex={0}>
+          <svg class="atlas-canvas" role="group" aria-label="由文章链接和标签关系生成的积木图" />
         </div>
         <aside class="atlas-detail" aria-live="polite">
-          <span class="atlas-kicker">探索提示</span>
-          <h3>点一块积木</h3>
-          <p>查看原文、日期和它在本站明确链接到的内容。再点同一块可直接打开原文。</p>
+          <span class="atlas-kicker">正在读取图谱</span>
+          <h3>稍等片刻</h3>
+          <p>地图会从知识图谱的公开内容索引读取链接和标签。</p>
         </aside>
       </div>
-      <p class="atlas-note">线段只在选中积木时出现，表示文章之间已有的直接链接；街区表示栏目分类。没有线段不代表内容无关。地图根据本站公开的内容索引自动生成。</p>
+      <div class="atlas-bottom">
+        <span class="atlas-count" aria-live="polite">正在加载…</span>
+        <span class="atlas-key"><i class="atlas-key-page" />文章和词条 <i class="atlas-key-tag" />标签节点 <i class="atlas-key-link" />文章链接 <i class="atlas-key-tags" />标签连接</span>
+      </div>
+      <div class="atlas-hover" role="tooltip" hidden />
     </section>
   )
 }
 
 LegoMap.css = `
-body[data-slug="atlas"] .page > #quartz-body { display: block; max-width: 1280px; margin: auto; padding: 0 clamp(1rem, 3vw, 2.5rem); }
+body[data-slug="atlas"] .page > #quartz-body { display: block; max-width: 1380px; margin: auto; padding: 0 clamp(1rem,3vw,2.5rem); }
 body[data-slug="atlas"] .page > #quartz-body .sidebar { display: none; }
 body[data-slug="atlas"] .page > #quartz-body .center { width: 100%; min-width: 0; max-width: none; }
 body[data-slug="atlas"] .center > article { max-width: 72ch; }
-.xiaoshi-atlas { --atlas-ink: #263544; --atlas-muted: #5e7080; --atlas-paper: #fffdf8; --atlas-edge: #e4e5df; color: var(--atlas-ink); font-family: inherit; max-width: 100%; margin: 1.3rem auto 2.5rem; border: 1px solid var(--atlas-edge); border-radius: 1.2rem; background: var(--atlas-paper); box-shadow: 0 12px 36px #1428350e; overflow: hidden; }
-.atlas-bar { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; justify-content: space-between; padding: 1rem 1.2rem; border-bottom: 1px solid var(--atlas-edge); }
-.atlas-heading { display: flex; align-items: center; gap: .5rem; }
-.atlas-heading strong { font-size: 1.12rem; }
-.atlas-mark { display: inline-flex; align-items: center; justify-content: center; height: 1.75rem; width: 1.75rem; background: #f7eac9; border-radius: .4rem; color: #936427; font-size: 1.45rem; }
-.atlas-count { margin-left: .5rem; color: var(--atlas-muted); font-size: .82rem; }
-.atlas-controls { display: flex; align-items: center; gap: .65rem; flex-wrap: wrap; }
-.atlas-search { width: min(15rem, 70vw); box-sizing: border-box; padding: .5rem .7rem; border: 1px solid #cbd5da; border-radius: .5rem; color: #263544; background: #fff; font-size: .9rem; }
-.atlas-search:focus-visible, .atlas-filters button:focus-visible, .atlas-brick:focus-visible { outline: 3px solid #326eb2; outline-offset: 3px; }
-.atlas-filters { display: flex; gap: .2rem; background: #edf1f2; padding: .2rem; border-radius: .5rem; }
-.atlas-filters button { padding: .35rem .55rem; border: 0; border-radius: .35rem; color: #455969; background: transparent; cursor: pointer; font-size: .85rem; }
-.atlas-filters button[aria-pressed="true"] { background: #fff; color: #263544; box-shadow: 0 1px 4px #0002; }
-.atlas-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(235px, 27%); align-items: start; }
-.atlas-scroll { min-width: 0; overflow: auto; background-color: #f5f4ec; background-image: radial-gradient(#b2b9b31c 1px, transparent 1px); background-size: 17px 17px; }
-.atlas-canvas { display: block; width: 100%; min-width: 780px; height: auto; }
-.atlas-district { fill: #fffefa; fill-opacity: .8; stroke: #d7dcd9; stroke-width: 1.5; }
-.atlas-district-title { fill: #344c56; font-size: 16px; font-weight: 700; }
-.atlas-district-subtitle { fill: #66777c; font-size: 11px; }
-.atlas-district-line { stroke: #d2d9d6; stroke-width: 1.2; stroke-dasharray: 4 5; }
-.atlas-road { fill: none; stroke: #657b8e; stroke-width: 2; stroke-dasharray: 4 4; opacity: .65; pointer-events: none; }
-.atlas-brick { cursor: pointer; transition: opacity .15s ease; }
-.atlas-brick polygon { stroke: #26354433; stroke-width: .9; }
-.atlas-brick ellipse { fill: #ffffff80; stroke: #26354444; stroke-width: 1; }
-.atlas-brick text { font-size: 10px; fill: #324556; text-anchor: middle; font-weight: 600; paint-order: stroke; stroke: #f5f4ec; stroke-width: 3px; stroke-linejoin: round; }
-.atlas-brick.is-muted { opacity: .12; }
-.atlas-brick.is-linked { filter: drop-shadow(0 0 5px #d9984c); }
-.atlas-brick.is-active { filter: drop-shadow(0 1px 5px #2449639c); }
-.atlas-brick.is-active polygon:first-child { stroke: #1f4f76; stroke-width: 2.5; }
-.atlas-detail { position: sticky; top: 0; min-height: 330px; max-height: 78vh; overflow-y: auto; box-sizing: border-box; padding: 1.2rem 1.1rem; border-left: 1px solid var(--atlas-edge); color: #304454; line-height: 1.55; }
-.atlas-detail h3 { margin: .5rem 0; font-size: 1.12rem; line-height: 1.4; overflow-wrap: anywhere; }
-.atlas-detail p { margin: .45rem 0 .9rem; font-size: .86rem; }
-.atlas-kicker { color: #526d80; font-size: .76rem; font-weight: 700; letter-spacing: .04em; }
-.atlas-open { display: inline-block; padding: .43rem .7rem; color: #fff !important; border-radius: .42rem; background: #325a76; text-decoration: none !important; font-size: .85rem; }
-.atlas-detail h4 { margin: 1.2rem 0 .3rem; font-size: .83rem; }
-.atlas-detail ul { list-style: none; padding: 0; margin: 0; font-size: .79rem; }
-.atlas-detail li { margin: .28rem 0; overflow-wrap: anywhere; }
-.atlas-note { margin: 0; padding: .7rem 1.2rem 1rem; border-top: 1px solid var(--atlas-edge); color: #5e7080; font-size: .77rem; line-height: 1.6; }
-.xiaoshi-atlas .visually-hidden { position: absolute; height: 1px; width: 1px; clip: rect(0,0,0,0); overflow: hidden; white-space: nowrap; }
-@media (max-width: 800px) { .atlas-layout { display: block; } .atlas-scroll { max-height: 66vh; } .atlas-detail { position: static; min-height: 0; max-height: none; border-left: 0; border-top: 1px solid var(--atlas-edge); } }
-@media (prefers-reduced-motion: reduce) { .atlas-brick { transition: none; } }
-:root[saved-theme="dark"] .xiaoshi-atlas { --atlas-paper: #202c32; --atlas-ink: #e7efef; --atlas-muted: #bac9cc; --atlas-edge: #506168; }
-:root[saved-theme="dark"] .atlas-scroll { background-color: #e7e8dd; }
-:root[saved-theme="dark"] .atlas-detail, :root[saved-theme="dark"] .atlas-detail h3 { color: #e7efef; }
+.xiaoshi-atlas { --atlas-ink: #2b3d4b; --atlas-muted: #657781; --atlas-paper: #fffdf8; --atlas-border: #dbe1de; position: relative; color: var(--atlas-ink); margin: 1.3rem auto 2.5rem; border: 1px solid var(--atlas-border); border-radius: 1.1rem; background: var(--atlas-paper); box-shadow: 0 12px 36px #14283510; overflow: hidden; }
+.atlas-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .9rem 1.4rem; padding: 1rem 1.2rem; border-bottom: 1px solid var(--atlas-border); }
+.atlas-heading { display: flex; gap: .55rem; align-items: center; font-size: 1.1rem; }
+.atlas-mark { display: inline-grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: .4rem; background: #e8dfca; color: #806541; font-size: 1.4rem; }
+.atlas-subtitle { margin: .2rem 0 0; color: var(--atlas-muted); font-size: .82rem; }
+.atlas-controls { display: flex; align-items: center; gap: .55rem; }
+.atlas-search-label { position: relative; }
+.atlas-search { box-sizing: border-box; width: min(16rem,46vw); padding: .48rem .65rem; border: 1px solid #cbd5d7; border-radius: .5rem; background: #fff; color: #253c48; font-size: .86rem; }
+.atlas-reset, .atlas-detail button { border: 1px solid var(--atlas-border); border-radius: .45rem; background: var(--atlas-paper); color: var(--atlas-ink); padding: .42rem .65rem; cursor: pointer; font-size: .82rem; }
+.atlas-reset:hover, .atlas-detail button:hover { border-color: #658b9f; }
+.atlas-search:focus-visible, .atlas-reset:focus-visible, .atlas-brick:focus-visible, .atlas-detail button:focus-visible { outline: 3px solid #527daa; outline-offset: 2px; }
+.atlas-results { position: absolute; z-index: 12; top: calc(100% + .25rem); left: 0; width: min(26rem,80vw); max-height: 19rem; overflow: auto; background: var(--atlas-paper); border: 1px solid var(--atlas-border); border-radius: .5rem; box-shadow: 0 7px 20px #0002; }
+.atlas-results[hidden], .atlas-hover[hidden] { display: none; }
+.atlas-results button { display: block; width: 100%; border: 0; border-bottom: 1px solid var(--atlas-border); padding: .6rem .7rem; text-align: left; color: var(--atlas-ink); background: transparent; cursor: pointer; font-size: .8rem; line-height: 1.45; }
+.atlas-results button:hover { background: #a5bbc328; }
+.atlas-layout { display: grid; grid-template-columns: minmax(0,1fr) minmax(220px,25%); }
+.atlas-scroll { min-width: 0; height: min(68vh,690px); min-height: 470px; overflow: auto; background: #f4f2e8; background-image: radial-gradient(#7c94a927 1px,transparent 1px); background-size: 18px 18px; }
+.atlas-canvas { display: block; width: 100%; min-width: 820px; height: auto; }
+.atlas-edge { fill: none; stroke-width: 2; opacity: .3; pointer-events: none; }
+.atlas-edge-link { stroke: #728a93; }
+.atlas-edge-tag { stroke: #a585b3; stroke-dasharray: 3 4; }
+.atlas-edge.is-lit { opacity: .88; stroke-width: 3; }
+.atlas-brick { cursor: pointer; }
+.atlas-brick .atlas-top { stroke: #24374740; stroke-width: 1.1; }
+.atlas-brick .atlas-face { stroke: #24374745; stroke-width: .8; }
+.atlas-brick .atlas-stud { fill: #ffffffa3; stroke: #26374755; stroke-width: 1; }
+.atlas-brick text { fill: #2a3d4c; stroke: #f8f6ef; stroke-width: 2.5px; paint-order: stroke; font-size: 10px; font-weight: 700; text-anchor: middle; pointer-events: none; }
+.atlas-brick.is-root { filter: drop-shadow(0 2px 6px #b37c3c88); }
+.atlas-brick.is-selected { filter: drop-shadow(0 2px 7px #385d7a99); }
+.atlas-brick.is-neighbor { filter: drop-shadow(0 1px 5px #62869177); }
+.atlas-brick.is-new { animation: atlas-pop .32s ease-out both; transform-box: fill-box; transform-origin: center; }
+@keyframes atlas-pop { from { opacity: 0; transform: scale(.35) translateY(-10px); } to { opacity: 1; transform: scale(1); } }
+.atlas-detail { box-sizing: border-box; max-height: min(68vh,690px); overflow-y: auto; padding: 1rem; border-left: 1px solid var(--atlas-border); color: var(--atlas-ink); }
+.atlas-kicker { color: #607c8a; font-size: .75rem; font-weight: 700; letter-spacing: .035em; }
+.atlas-detail h3 { font-size: 1.1rem; line-height: 1.4; margin: .5rem 0; overflow-wrap: anywhere; }
+.atlas-detail p { font-size: .84rem; line-height: 1.6; margin: .4rem 0 .85rem; }
+.atlas-detail .atlas-actions { display: flex; flex-wrap: wrap; gap: .4rem; margin: .85rem 0; }
+.atlas-open { display: inline-block; padding: .43rem .7rem; border-radius: .42rem; color: white !important; background: #3d6680; text-decoration: none !important; font-size: .83rem; }
+.atlas-detail h4 { font-size: .82rem; margin: 1rem 0 .4rem; }
+.atlas-detail ul { list-style: none; padding: 0; margin: 0; font-size: .78rem; }
+.atlas-detail li { margin: .35rem 0; overflow-wrap: anywhere; }
+.atlas-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .55rem; padding: .7rem 1.2rem; border-top: 1px solid var(--atlas-border); color: var(--atlas-muted); font-size: .76rem; }
+.atlas-key { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .2rem .45rem; }
+.atlas-key i { display: inline-block; width: .72rem; height: .72rem; border-radius: .15rem; }
+.atlas-key-page { background: #e8ac72; }.atlas-key-tag { background: #b6a0d7; }
+.atlas-key .atlas-key-link,.atlas-key .atlas-key-tags { width: 1rem; height: 0; border-radius: 0; border-top: 2px solid #728a93; }
+.atlas-key .atlas-key-tags { border-top: 2px dashed #a585b3; }
+.atlas-hover { position: fixed; z-index: 99999; box-sizing: border-box; width: max-content; max-width: min(22rem,calc(100vw - 1.5rem)); padding: .48rem .66rem; border: 1px solid #b8c8cd; border-radius: .4rem; background: #fffdf7; color: #243947; box-shadow: 0 3px 14px #0003; line-height: 1.45; font-size: .9rem; overflow-wrap: anywhere; pointer-events: none; }
+.xiaoshi-atlas .visually-hidden { position: absolute; width: 1px; height: 1px; clip: rect(0,0,0,0); overflow: hidden; white-space: nowrap; }
+:root[saved-theme="dark"] .xiaoshi-atlas { --atlas-paper:#253039;--atlas-ink:#e5eded;--atlas-muted:#bbc8cd;--atlas-border:#566871; }
+:root[saved-theme="dark"] .atlas-scroll { background-color:#e8e7dd; }
+@media(max-width:780px) { .atlas-layout { display:block; }.atlas-scroll { height:55vh;min-height:370px; }.atlas-detail { max-height:none;border-left:0;border-top:1px solid var(--atlas-border); } }
+@media(prefers-reduced-motion:reduce) { .atlas-brick.is-new { animation:none; } }
 `
 
 LegoMap.afterDOMLoaded = `
 (() => {
-  const NS = 'http://www.w3.org/2000/svg';
-  let run = 0;
-  const districts = [
-    {key:'market', name:'女装市场词典', tint:'#eeaa62'},
-    {key:'industry', name:'产业带词典', tint:'#72b5a0'},
-    {key:'silk', name:'丝绸词典', tint:'#aa94d2'},
-    {key:'concept', name:'小施概念', tint:'#85a8d2'}
-  ];
-  const el = (tag, attrs, parent) => {
-    const node = document.createElementNS(NS, tag);
-    Object.entries(attrs || {}).forEach(([key, value]) => node.setAttribute(key, String(value)));
-    if (parent) parent.appendChild(node);
+  const NS='http://www.w3.org/2000/svg', BATCH=14, LIMIT=140;
+  let mountNumber=0;
+  const element=(tag,attrs,parent)=>{
+    const node=document.createElementNS(NS,tag);
+    Object.entries(attrs||{}).forEach(([name,value])=>node.setAttribute(name,String(value)));
+    if(parent)parent.appendChild(node);
     return node;
   };
-  const urlFor = slug => {
-    const clean = slug.replace(/\\/index$/, '/');
-    return (document.body.dataset.basepath || '') + encodeURI('/' + clean);
-  };
-  const normalize = slug => String(slug || '').replace(/^\\//, '').replace(/\\/$/, '').replace(/\\/index$/, '');
-  const short = (value, max) => Array.from(value).length > max ? Array.from(value).slice(0, max).join('') + '…' : value;
-  const clear = node => { while (node.firstChild) node.removeChild(node.firstChild); };
-  function drawDistrict(svg, x, y, w, h, title, count, accent) {
-    el('rect', {x,y,width:w,height:h,rx:18,class:'atlas-district'}, svg);
-    el('rect', {x:x+14,y:y+16,width:7,height:22,rx:3,fill:accent},svg);
-    el('text', {x:x+32,y:y+34,class:'atlas-district-title'},svg).textContent = title;
-    el('text', {x:x+w-18,y:y+34,'text-anchor':'end',class:'atlas-district-subtitle'},svg).textContent = count + ' 篇';
-    el('line',{x1:x+16,y1:y+50,x2:x+w-16,y2:y+50,class:'atlas-district-line'},svg);
-  }
-  function drawBrick(layer, item, x, y) {
-    const group = el('g',{class:'atlas-brick',role:'button',tabindex:0,'aria-label':item.title + '，点选后可打开原文'},layer);
-    const top = [[x,y-8],[x+23,y-20],[x+50,y-8],[x+27,y+4]].map(p=>p.join(',')).join(' ');
-    const left = [[x,y-8],[x+27,y+4],[x+27,y+16],[x,y+4]].map(p=>p.join(',')).join(' ');
-    const right = [[x+27,y+4],[x+50,y-8],[x+50,y+4],[x+27,y+16]].map(p=>p.join(',')).join(' ');
-    el('polygon',{points:top,fill:item.tint},group);
-    el('polygon',{points:left,fill:item.side},group);
-    el('polygon',{points:right,fill:item.dark},group);
-    el('ellipse',{cx:x+25,cy:y-9,rx:6,ry:3},group);
-    el('text',{x:x+25,y:y+29},group).textContent = item.label;
-    item.group = group; item.cx = x + 25; item.cy = y - 8;
-    return group;
-  }
-  function makeLink(detail, title, href) {
-    const link = document.createElement('a');
-    link.href = href; link.textContent = title; detail.appendChild(link);
-    return link;
-  }
-  function setup(root, index) {
-    const canvas = root.querySelector('.atlas-canvas');
-    const detail = root.querySelector('.atlas-detail');
-    const entries = Object.entries(index).filter(([slug,page]) => page && page.title && !slug.startsWith('tags/'));
-    const dict = entries.filter(([slug]) => /^dict\\/(market|industry|silk|concept)\\//.test(slug));
-    const diary = entries.filter(([slug]) => /^diary\\/\\d{4}-\\d{2}-\\d{2}$/.test(slug));
-    const months = [...new Set(diary.map(([slug]) => slug.slice(6,13)))].sort().slice(-2).reverse();
-    const items = [];
-    const map = new Map();
-    const site = new Map(entries.map(([slug,page]) => [normalize(slug),{slug,page}]));
-    const dictGroups = districts.map(d => {
-      const pages = dict.filter(([slug]) => slug.startsWith('dict/' + d.key + '/'))
-        .sort((a,b) => (a[0].endsWith('/index') ? -1 : b[0].endsWith('/index') ? 1 : a[0].localeCompare(b[0],'zh')));
-      return {kind:'dict',title:d.name,accent:d.tint,group:d.key,pages};
-    });
-    const monthGroups = months.map((month, i) => ({kind:'diary',title:month.replace('-', ' 年 ') + ' 月日记',accent:i ? '#97bba4' : '#87aec9',group:month,pages:diary.filter(([slug])=>slug.slice(6,13)===month).sort((a,b)=>a[0].localeCompare(b[0]))}));
-    const maxDictRows = Math.max(4,...dictGroups.map(group=>Math.ceil(group.pages.length/4)));
-    const topH = Math.max(278, 80 + maxDictRows * 43);
-    const monthH = Math.max(300,...monthGroups.map(group=>100+Math.ceil(group.pages.length/8)*51));
-    const bottomY = 26 + topH + 22;
-    const height = bottomY + monthH + 28;
-    canvas.setAttribute('viewBox','0 0 920 ' + height);
-    clear(canvas);
-    el('title',{},canvas).textContent = '小施掌柜：词典与最近两个月日记的积木地图';
-    const background = el('g',{},canvas);
-    const roads = el('g',{},canvas);
-    const bricks = el('g',{},canvas);
-    const groups = dictGroups.concat(monthGroups);
-    groups.forEach((group,i) => {
-      const isDict = i < 4;
-      const x = isDict ? 12 + i*226 : 12 + (i-4)*452;
-      const y = isDict ? 26 : bottomY;
-      const w = isDict ? 214 : 440;
-      const h = isDict ? topH : monthH;
-      drawDistrict(background,x,y,w,h,group.title,group.pages.length,group.accent);
-      group.pages.forEach(([slug,page],n) => {
-        const col = n % (isDict ? 4 : 8);
-        const row = Math.floor(n / (isDict ? 4 : 8));
-        const bx = x + (isDict ? 8+col*49+row*2 : 11+col*51+row*2);
-        const by = y + (isDict ? 89+row*43-col*2 : 91+row*51-col*2);
-        const item = {slug,title:String(page.title),page,kind:group.kind,districtTitle:group.title,
-          label:isDict ? (slug.endsWith('/index') ? '入口' : short(String(page.title).replace(/^[《“]|[》”]$/g,''),6)) : slug.slice(-5).replace('-', '·'),
-          tint:group.accent, side:isDict ? '#ba9279' : '#698fa2', dark:isDict ? '#aa7d61' : '#597e91'};
-        if (group.group === 'industry') {item.side='#568b7b';item.dark='#477968';}
-        if (group.group === 'silk') {item.side='#8473a9';item.dark='#706096';}
-        if (group.group === 'concept') {item.side='#6989aa';item.dark='#526f98';}
-        if (!isDict && i === 5) {item.side='#739989';item.dark='#5f8574';}
-        drawBrick(bricks,item,bx,by);
-        items.push(item);map.set(normalize(slug),item);
-      });
-    });
-    const count = root.querySelector('.atlas-count');
-    const search = root.querySelector('.atlas-search');
-    const filterButtons = [...root.querySelectorAll('[data-filter]')];
-    let filter = 'all', selected = null;
-    function applyFilter() {
-      const query = search.value.trim().toLocaleLowerCase();
-      let visible = 0;
-      items.forEach(item => {
-        const matches = (filter === 'all' || filter === item.kind) &&
-          (!query || (item.title+' '+item.slug+' '+item.districtTitle).toLocaleLowerCase().includes(query));
-        item.group.classList.toggle('is-muted',!matches);
-        if (matches) visible++;
-      });
-      count.textContent = visible + ' / ' + items.length + ' 块 · ' + (months.length ? months.join('、') : '暂无日记');
+  const clear=node=>{while(node.firstChild)node.removeChild(node.firstChild)};
+  const normalize=value=>String(value||'').replace(/^\\//,'').replace(/\\/$/,'').replace(/\\/index$/,'');
+  const articleUrl=slug=>(document.body.dataset.basepath||'')+encodeURI('/'+(slug==='index'?'':slug.replace(/\\/index$/,'/')));
+  const shorten=(text,n)=>Array.from(text).length>n?Array.from(text).slice(0,n).join('')+'…':text;
+  const dateOf=node=>{const found=node.slug&&node.slug.match(/\\d{4}-\\d{2}-\\d{2}/);return found?Date.parse(found[0]):NaN};
+  const kindOf=slug=>slug.startsWith('diary/')?'日记':slug.startsWith('dict/')?'词条':slug.startsWith('posts/')?'文章':slug.startsWith('podcasts/')?'播客':slug.startsWith('transcripts/')?'转写': '页面';
+  const keyOf=(a,b)=>[a,b].sort().join('\\u0000');
+  const keyAt=(q,r)=>q+','+r;
+  function buildGraph(index) {
+    const nodes=new Map(),edges=new Map();
+    for(const [slug,page] of Object.entries(index)) {
+      if(!page||!page.title||slug.startsWith('tags/'))continue;
+      const id=normalize(slug);
+      nodes.set(id,{id,slug,title:String(page.title),type:'page',kind:kindOf(slug),page,neighbors:new Map()});
     }
-    function show(item) {
-      clear(roads);
-      items.forEach(entry => entry.group.classList.remove('is-active','is-linked'));
-      clear(detail);
-      if (!item) {
-        detail.appendChild(Object.assign(document.createElement('span'),{className:'atlas-kicker',textContent:'探索提示'}));
-        detail.appendChild(Object.assign(document.createElement('h3'),{textContent:'点一块积木'}));
-        detail.appendChild(Object.assign(document.createElement('p'),{textContent:'查看原文、日期和它在本站明确链接到的内容。再点同一块可直接打开原文。'}));
-        return;
+    const connect=(a,b,kind)=>{
+      if(!nodes.has(a)||!nodes.has(b)||a===b)return;
+      const key=keyOf(a,b);
+      if(!edges.has(key))edges.set(key,{a,b,kind});
+      nodes.get(a).neighbors.set(b,kind);
+      nodes.get(b).neighbors.set(a,kind);
+    };
+    for(const node of [...nodes.values()]) {
+      for(const link of node.page.links||[])connect(node.id,normalize(link),'link');
+      for(const tag of node.page.tags||[]) {
+        const id='tag:'+tag;
+        if(!nodes.has(id))nodes.set(id,{id,slug:'tags/'+tag,title:'#'+tag,type:'tag',kind:'标签',neighbors:new Map()});
+        connect(node.id,id,'tag');
       }
-      item.group.classList.add('is-active');
-      detail.appendChild(Object.assign(document.createElement('span'),{className:'atlas-kicker',textContent:item.districtTitle}));
-      detail.appendChild(Object.assign(document.createElement('h3'),{textContent:item.title}));
-      const date = item.slug.match(/\\d{4}-\\d{2}-\\d{2}/);
-      if (date) detail.appendChild(Object.assign(document.createElement('p'),{textContent:'记录日期：'+date[0]}));
-      else if (item.page.description) detail.appendChild(Object.assign(document.createElement('p'),{textContent:short(String(item.page.description),96)}));
-      const open = makeLink(detail,'打开原文 ↗',urlFor(item.slug));open.className='atlas-open';
-      const out = (item.page.links || []).map(normalize).filter(Boolean);
-      const incoming = entries.filter(([slug,page]) => slug!==item.slug && (page.links || []).map(normalize).includes(normalize(item.slug))).map(([slug])=>normalize(slug));
-      const drawn = new Set();
-      out.concat(incoming).forEach(slug => {
-        const target = map.get(slug);
-        if (!target || target === item || drawn.has(slug)) return;
-        drawn.add(slug);target.group.classList.add('is-linked');
-        el('path',{d:'M '+item.cx+' '+item.cy+' L '+target.cx+' '+target.cy,class:'atlas-road'},roads);
-      });
-      [[out,'本文链接到'],[incoming,'链接到本文']].forEach(([links,heading]) => {
-        const found = [...new Set(links)].map(slug=>site.get(slug)).filter(Boolean).slice(0,8);
-        if (!found.length) return;
-        detail.appendChild(Object.assign(document.createElement('h4'),{textContent:heading}));
-        const list = document.createElement('ul');detail.appendChild(list);
-        found.forEach(({slug,page})=> {const li=document.createElement('li');list.appendChild(li);makeLink(li,String(page.title),urlFor(slug));});
-      });
-      if (!drawn.size) detail.appendChild(Object.assign(document.createElement('p'),{textContent:'地图范围内暂无直接双链；这不表示内容之间没有关联。'}));
     }
-    items.forEach(item => {
-      item.group.addEventListener('pointerenter',()=>show(item));
-      item.group.addEventListener('pointerleave',()=>show(selected));
-      item.group.addEventListener('focus',()=>show(item));
-      item.group.addEventListener('blur',()=>show(selected));
-      item.group.addEventListener('click',()=>{if (selected === item) window.location.href=urlFor(item.slug); else {selected=item;show(item);} });
-      item.group.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();item.group.click();}});
-    });
-    search.addEventListener('input',applyFilter);
-    filterButtons.forEach(button=>button.addEventListener('click',()=>{
-      filter=button.dataset.filter;
-      filterButtons.forEach(other=>other.setAttribute('aria-pressed',String(other===button)));
-      applyFilter();
-    }));
-    applyFilter();
+    return {nodes,edges};
   }
-  async function mount() {
-    const root = document.querySelector('.xiaoshi-atlas');
-    if (!root || root.dataset.ready) return;
+  function start(root,index) {
+    const canvas=root.querySelector('.atlas-canvas');
+    const scroll=root.querySelector('.atlas-scroll');
+    const detail=root.querySelector('.atlas-detail');
+    const count=root.querySelector('.atlas-count');
+    const hover=root.querySelector('.atlas-hover');
+    const search=root.querySelector('.atlas-search');
+    const results=root.querySelector('.atlas-results');
+    const resetButton=root.querySelector('.atlas-reset');
+    const {nodes,edges}=buildGraph(index);
+    const pages=[...nodes.values()].filter(n=>n.type==='page');
+    let origin=null,selected=null,placed=new Map(),occupied=new Set(),newItems=new Set();
+    function matchesRoot(value){
+      if(value.startsWith('tags/'))return 'tag:'+value.slice(5);
+      return normalize(value);
+    }
+    function chooseRoot(value){
+      const requested=nodes.get(matchesRoot(value||''));
+      return requested||nodes.get('dict/concept')||pages.find(n=>n.neighbors.size>2)||pages[0];
+    }
+    const currentFrom=new URLSearchParams(location.search).get('from');
+    const initial=chooseRoot(currentFrom);
+    function orderNeighbors(parent){
+      const sourceDate=dateOf(origin);
+      return [...parent.neighbors.keys()].filter(id=>nodes.has(id)&&!placed.has(id))
+        .sort((a,b)=>{
+          const an=nodes.get(a),bn=nodes.get(b);
+          const linkFirst=(parent.neighbors.get(a)==='link'?0:1)-(parent.neighbors.get(b)==='link'?0:1);
+          if(linkFirst)return linkFirst;
+          if(Number.isFinite(sourceDate)){
+            const da=dateOf(an),db=dateOf(bn);
+            if(Number.isFinite(da)&&Number.isFinite(db)&&Math.abs(da-sourceDate)!==Math.abs(db-sourceDate))return Math.abs(da-sourceDate)-Math.abs(db-sourceDate);
+          }
+          return a.localeCompare(b,'zh');
+        });
+    }
+    function findCell(parent,id){
+      const bias=[...id].reduce((n,ch)=>n+ch.charCodeAt(0),0)%7;
+      let best=null,bestScore=Infinity;
+      for(let radius=1;radius<=30;radius++){
+        for(let q=parent.q-radius;q<=parent.q+radius;q++)for(let r=parent.r-radius;r<=parent.r+radius;r++){
+          const distance=Math.abs(q-parent.q)+Math.abs(r-parent.r);
+          if(distance!==radius||occupied.has(keyAt(q,r)))continue;
+          const outward=Math.abs(q)+Math.abs(r);
+          const score=distance*100-outward*4+((q*13+r*7+bias*11+10000)%17);
+          if(score<bestScore){best={q,r};bestScore=score}
+        }
+        if(best)return best;
+      }
+      return null;
+    }
+    function expand(id,amount=BATCH){
+      const parent=placed.get(id),node=nodes.get(id);
+      if(!parent||!node)return 0;
+      let added=0;
+      for(const next of orderNeighbors(node)){
+        if(placed.size>=LIMIT||added>=amount)break;
+        const spot=findCell(parent,next);
+        if(!spot)break;
+        placed.set(next,{...spot,id:next,parent:id,depth:parent.depth+1});
+        occupied.add(keyAt(spot.q,spot.r));
+        newItems.add(next);
+        added++;
+      }
+      return added;
+    }
+    function describe(node){
+      clear(detail);
+      const kick=document.createElement('span');kick.className='atlas-kicker';kick.textContent=node.kind+(node.id===origin.id?' · 起点':'');detail.appendChild(kick);
+      const title=document.createElement('h3');title.textContent=node.title;detail.appendChild(title);
+      const visible=[...node.neighbors.keys()].filter(id=>placed.has(id));
+      const hidden=[...node.neighbors.keys()].filter(id=>!placed.has(id));
+      const context=document.createElement('p');
+      context.textContent='已拼出相邻 '+visible.length+' 块；还有 '+hidden.length+' 块可沿关系展开。';
+      detail.appendChild(context);
+      const actions=document.createElement('div');actions.className='atlas-actions';detail.appendChild(actions);
+      if(hidden.length&&placed.size<LIMIT){
+        const grow=document.createElement('button');grow.type='button';grow.textContent='沿这里继续拼 +'+Math.min(BATCH,hidden.length);
+        grow.addEventListener('click',()=>{expand(node.id);render();describe(node)});
+        actions.appendChild(grow);
+      }
+      if(node.id!==origin.id){
+        const reRoot=document.createElement('button');reRoot.type='button';reRoot.textContent='以它为新起点';
+        reRoot.addEventListener('click',()=>reset(node,true));
+        actions.appendChild(reRoot);
+      }
+      const original=document.createElement('a');original.className='atlas-open';original.href=articleUrl(node.slug);original.textContent=node.type==='tag'?'查看标签页 ↗':'打开原文 ↗';actions.appendChild(original);
+      if(!node.neighbors.size){
+        const empty=document.createElement('p');empty.textContent='这个节点目前没有文章链接或标签关系，可搜索另一篇内容作为起点。';detail.appendChild(empty);
+      }
+      if(visible.length){
+        const heading=document.createElement('h4');heading.textContent='图上已连接的节点';detail.appendChild(heading);
+        const list=document.createElement('ul');detail.appendChild(list);
+        visible.slice(0,8).forEach(id=>{
+          const next=nodes.get(id),li=document.createElement('li');
+          li.textContent=(node.neighbors.get(id)==='tag'?'标签 · ':'文章链接 · ')+next.title;
+          list.appendChild(li);
+        });
+      }
+    }
+    function cell(p){return {x:(p.q-p.r)*38,y:(p.q+p.r)*20}}
+    function render(){
+      const cells=[...placed.values()].map(cell);
+      const minX=Math.min(...cells.map(p=>p.x)),maxX=Math.max(...cells.map(p=>p.x));
+      const minY=Math.min(...cells.map(p=>p.y)),maxY=Math.max(...cells.map(p=>p.y));
+      const width=Math.max(840,maxX-minX+240),height=Math.max(510,maxY-minY+230);
+      const offsetX=width/2-(minX+maxX)/2,offsetY=height/2-(minY+maxY)/2;
+      const loc=p=>{const c=cell(p);return {x:c.x+offsetX,y:c.y+offsetY}};
+      canvas.setAttribute('viewBox','0 0 '+width+' '+height);
+      canvas.style.minWidth=width+'px';
+      clear(canvas);
+      element('title',{},canvas).textContent='真实关系拼出的积木图；点击相邻节点继续向外展开';
+      const edgeLayer=element('g',{},canvas);
+      for(const edge of edges.values()){
+        const a=placed.get(edge.a),b=placed.get(edge.b);
+        if(!a||!b)continue;
+        const p=loc(a),q=loc(b);
+        element('path',{d:'M '+p.x+' '+p.y+' L '+q.x+' '+q.y,class:'atlas-edge atlas-edge-'+edge.kind,'data-from':edge.a,'data-to':edge.b},edgeLayer);
+      }
+      const blocks=element('g',{},canvas);
+      const sorted=[...placed.values()].sort((a,b)=>cell(a).y-cell(b).y||cell(a).x-cell(b).x);
+      for(const position of sorted){
+        const node=nodes.get(position.id),point=loc(position);
+        const x=point.x,y=point.y;
+        const isTag=node.type==='tag',isRoot=node.id===origin.id;
+        const top=isRoot?'#f3c77e':isTag?'#bba7d8':node.kind==='词条'?'#e7ab75':node.kind==='日记'?'#87bdaf':'#91b2c9';
+        const front=isRoot?'#c99a58':isTag?'#947fb9':node.kind==='词条'?'#bd835a':node.kind==='日记'?'#61998d':'#668da8';
+        const side=isRoot?'#ad7f44':isTag?'#8068a9':node.kind==='词条'?'#a66c49':node.kind==='日记'?'#4e7f73':'#537b96';
+        const group=element('g',{class:'atlas-brick'+(isRoot?' is-root':'')+(selected===node.id?' is-selected':'')+(newItems.has(node.id)?' is-new':''),role:'button',tabindex:0,'aria-label':node.title,'data-id':node.id},blocks);
+        const points=parts=>parts.map(p=>p.join(',')).join(' ');
+        element('polygon',{class:'atlas-top',fill:top,points:points([[x,y-20],[x+38,y],[x,y+20],[x-38,y]])},group);
+        element('polygon',{class:'atlas-face',fill:front,points:points([[x-38,y],[x,y+20],[x,y+36],[x-38,y+16]])},group);
+        element('polygon',{class:'atlas-face',fill:side,points:points([[x,y+20],[x+38,y],[x+38,y+16],[x,y+36]])},group);
+        element('ellipse',{class:'atlas-stud',cx:x-12,cy:y-8,rx:6,ry:3},group);
+        element('ellipse',{class:'atlas-stud',cx:x+9,cy:y+3,rx:6,ry:3},group);
+        element('text',{x,y:y+29},group).textContent=isRoot?'起点':isTag?shorten(node.title,4):shorten(node.title.replace(/^辑[一二三四五六七八九十百千万零]+\\s*/,''),5);
+        const showTooltip=event=>{
+          hover.textContent=node.title;hover.hidden=false;
+          if(event.clientX!==undefined){
+            const box=hover.getBoundingClientRect();
+            hover.style.left=Math.max(8,Math.min(event.clientX+15,window.innerWidth-box.width-8))+'px';
+            hover.style.top=Math.max(8,Math.min(event.clientY+15,window.innerHeight-box.height-8))+'px';
+          }
+          blocks.querySelectorAll('.atlas-brick').forEach(item=>item.classList.toggle('is-neighbor',node.neighbors.has(item.getAttribute('data-id'))));
+          edgeLayer.querySelectorAll('.atlas-edge').forEach(edge=>edge.classList.toggle('is-lit',edge.getAttribute('data-from')===node.id||edge.getAttribute('data-to')===node.id));
+        };
+        group.addEventListener('pointerenter',showTooltip);
+        group.addEventListener('pointermove',showTooltip);
+        group.addEventListener('pointerleave',()=>{hover.hidden=true;blocks.querySelectorAll('.is-neighbor').forEach(e=>e.classList.remove('is-neighbor'));edgeLayer.querySelectorAll('.is-lit').forEach(e=>e.classList.remove('is-lit'))});
+        group.addEventListener('focus',showTooltip);
+        group.addEventListener('blur',()=>hover.hidden=true);
+        group.addEventListener('click',()=>{selected=node.id;expand(node.id);render();describe(node)});
+        group.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();group.click()}});
+      }
+      newItems.clear();
+      const shownEdges=[...edges.values()].filter(edge=>placed.has(edge.a)&&placed.has(edge.b)).length;
+      count.textContent=placed.size+' 块积木 · '+shownEdges+' 条真实关系 · 起点：'+origin.title;
+      scroll.scrollLeft=Math.max(0,(canvas.getBoundingClientRect().width-scroll.clientWidth)/2);
+      scroll.scrollTop=Math.max(0,(canvas.getBoundingClientRect().height-scroll.clientHeight)/2);
+    }
+    function reset(node,updateUrl=false){
+      origin=node;selected=node.id;placed=new Map([[node.id,{id:node.id,q:0,r:0,parent:null,depth:0}]]);occupied=new Set([keyAt(0,0)]);newItems=new Set([node.id]);
+      expand(node.id,16);render();describe(node);
+      if(updateUrl)history.replaceState(history.state,'',(document.body.dataset.basepath||'')+'/atlas?from='+encodeURIComponent(node.type==='tag'?node.slug:node.id));
+      results.hidden=true;
+    }
+    function searchNow(){
+      clear(results);
+      const query=search.value.trim().toLocaleLowerCase();
+      if(!query){results.hidden=true;return}
+      const matches=pages.filter(node=>(node.title+' '+node.slug).toLocaleLowerCase().includes(query)).slice(0,8);
+      for(const node of matches){
+        const option=document.createElement('button');option.type='button';option.textContent=node.title;
+        option.addEventListener('click',()=>{search.value='';reset(node,true)});
+        results.appendChild(option);
+      }
+      results.hidden=!matches.length;
+    }
+    search.addEventListener('input',searchNow);
+    search.addEventListener('keydown',event=>{
+      if(event.key==='Escape')results.hidden=true;
+      if(event.key==='Enter'){const first=results.querySelector('button');if(first){event.preventDefault();first.click()}}
+    });
+    resetButton.addEventListener('click',()=>reset(initial,true));
+    reset(initial);
+  }
+  async function mount(){
+    const root=document.querySelector('.xiaoshi-atlas');
+    if(!root||root.dataset.ready)return;
     root.dataset.ready='loading';
-    const thisRun=++run;
-    try {
-      const url=(document.body.dataset.basepath||'')+'/static/contentIndex.json';
-      const response=await fetch(url);
-      if(!response.ok) throw new Error('内容索引未加载：HTTP '+response.status);
+    const ticket=++mountNumber;
+    try{
+      const response=await fetch((document.body.dataset.basepath||'')+'/static/contentIndex.json');
+      if(!response.ok)throw Error('内容索引未加载：HTTP '+response.status);
       const index=await response.json();
-      if(thisRun!==run || !root.isConnected) return;
-      setup(root,index);root.dataset.ready='true';
-    } catch(error) {
-      root.dataset.ready='';root.querySelector('.atlas-count').textContent='地图暂时无法加载';
+      if(ticket!==mountNumber||!root.isConnected)return;
+      start(root,index);root.dataset.ready='true';
+    }catch(error){
+      root.dataset.ready='';
+      root.querySelector('.atlas-count').textContent='关系图暂时无法加载';
       root.querySelector('.atlas-detail').textContent=String(error);
     }
   }
   document.addEventListener('nav',mount);
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',mount); else mount();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
 })();
 `
 

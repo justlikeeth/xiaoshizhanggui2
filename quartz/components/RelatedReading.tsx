@@ -105,7 +105,8 @@ RelatedReading.css = `
 .graph-mode-toolbar button { border: 1px solid var(--lightgray); border-radius: .4rem; padding: .28rem .55rem; background: var(--light); color: var(--dark); font-size: .83rem; cursor: pointer; }
 .graph-mode-toolbar button[aria-pressed="true"] { background: var(--secondary); border-color: var(--secondary); color: var(--light); }
 .graph-mode-toolbar a { color: var(--secondary); font-size: .83rem; margin-left: .25rem; }
-.graph-hover-title { position: absolute; z-index: 3; bottom: .7rem; left: .7rem; max-width: min(90%, 38rem); padding: .4rem .65rem; border: 1px solid var(--lightgray); border-radius: .35rem; background: var(--light); color: var(--dark); box-shadow: 0 2px 9px #0002; font-size: .9rem; line-height: 1.4; overflow-wrap: anywhere; pointer-events: none; }
+.graph-atlas-entry { float: right; color: var(--secondary); font-size: .78rem; font-weight: 500; }
+.graph-hover-title { position: absolute; z-index: 10; top: 0; left: 0; box-sizing: border-box; width: max-content; max-width: min(22rem, calc(100% - 1rem)); padding: .45rem .65rem; border: 1px solid var(--lightgray); border-radius: .4rem; background: var(--light); color: var(--dark); box-shadow: 0 2px 10px #0003; font-size: .88rem; line-height: 1.45; overflow-wrap: anywhere; pointer-events: none; }
 .graph-hover-title[hidden] { display: none; }
 .graph-container, .global-graph-container { position: relative; }
 @media (max-width: 600px) { .graph-mode-toolbar { top: 2vh; flex-wrap: wrap; justify-content: center; width: min(94vw, 26rem); white-space: normal; } .graph-mode-toolbar span { display: none; } }
@@ -120,7 +121,19 @@ function setupGraphModes() {
 
     const toolbar = document.createElement('div');
     toolbar.className = 'graph-mode-toolbar';
-    toolbar.innerHTML = '<span>图谱范围</span><button type="button" data-mode="near" aria-pressed="true">本页关联</button><button type="button" data-mode="all" aria-pressed="false">全站概览</button><button type="button" data-labels="all" aria-pressed="false">显示全部标题</button><a href="/atlas">积木地图 →</a>';
+    toolbar.innerHTML = '<span>图谱范围</span><button type="button" data-mode="near" aria-pressed="true">本页关联</button><button type="button" data-mode="all" aria-pressed="false">全站概览</button><button type="button" data-labels="all" aria-pressed="false">显示全部标题</button>';
+    const atlasUrl = (document.body.dataset.basepath || '') + '/atlas?from=' + encodeURIComponent(document.body.dataset.slug || '');
+    const atlasLink = document.createElement('a');
+    atlasLink.href = atlasUrl;
+    atlasLink.textContent = '从本页拼积木图 →';
+    toolbar.appendChild(atlasLink);
+    const heading = outer.closest('.graph')?.querySelector(':scope > h3');
+    if (heading && !heading.querySelector('.graph-atlas-entry')) {
+      const entry = atlasLink.cloneNode(true);
+      entry.className = 'graph-atlas-entry';
+      entry.textContent = '拼成积木图 ↗';
+      heading.appendChild(entry);
+    }
     toolbar.addEventListener('click', (event) => {
       // The graph closes on outside clicks; keep clicks on the controls inside.
       event.stopPropagation();
@@ -154,6 +167,14 @@ function setupGraphModes() {
   });
 }
 document.addEventListener('nav', setupGraphModes);
+document.addEventListener('xiaoshigraphhover', (event) => {
+  const outer = document.querySelector('.global-graph-outer.active');
+  const link = outer?.querySelector('.graph-mode-toolbar a');
+  const slug = event.detail?.slug;
+  if (!link || !slug) return;
+  link.href = (document.body.dataset.basepath || '') + '/atlas?from=' + encodeURIComponent(slug);
+  link.textContent = '从这个节点拼积木图 →';
+});
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', setupGraphModes);
 } else {
