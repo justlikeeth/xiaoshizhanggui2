@@ -1,21 +1,31 @@
 import { QuartzComponent } from "./types"
 
 const LegoMap: QuartzComponent = ({ fileData }) => {
-  if (fileData.slug !== "atlas") return null
+  if (fileData.slug !== "lab/graph-blocks") return null
   return (
     <section class="xiaoshi-atlas" aria-label="从知识图谱生长的积木图">
       <header class="atlas-bar">
         <div>
-          <div class="atlas-heading"><span class="atlas-mark">▧</span><strong>关系积木图</strong></div>
+          <div class="atlas-heading">
+            <span class="atlas-mark">▧</span>
+            <strong>关系积木图</strong>
+          </div>
           <p class="atlas-subtitle">从一个节点出发，沿真实链接与标签关系逐块向外拼</p>
         </div>
         <div class="atlas-controls">
           <label class="atlas-search-label">
             <span class="visually-hidden">寻找新的起点</span>
-            <input class="atlas-search" type="search" placeholder="寻找新的起点" autocomplete="off" />
+            <input
+              class="atlas-search"
+              type="search"
+              placeholder="寻找新的起点"
+              autocomplete="off"
+            />
             <span class="atlas-results" hidden />
           </label>
-          <button class="atlas-reset" type="button">回到起点</button>
+          <button class="atlas-reset" type="button">
+            回到起点
+          </button>
         </div>
       </header>
       <div class="atlas-layout">
@@ -29,8 +39,16 @@ const LegoMap: QuartzComponent = ({ fileData }) => {
         </aside>
       </div>
       <div class="atlas-bottom">
-        <span class="atlas-count" aria-live="polite">正在加载…</span>
-        <span class="atlas-key"><i class="atlas-key-page" />文章和词条 <i class="atlas-key-tag" />标签节点 <i class="atlas-key-link" />文章链接 <i class="atlas-key-tags" />标签连接</span>
+        <span class="atlas-count" aria-live="polite">
+          正在加载…
+        </span>
+        <span class="atlas-key">
+          <i class="atlas-key-page" />
+          文章和词条 <i class="atlas-key-tag" />
+          标签节点 <i class="atlas-key-link" />
+          文章链接 <i class="atlas-key-tags" />
+          标签连接
+        </span>
       </div>
       <div class="atlas-hover" role="tooltip" hidden />
     </section>
@@ -38,10 +56,10 @@ const LegoMap: QuartzComponent = ({ fileData }) => {
 }
 
 LegoMap.css = `
-body[data-slug="atlas"] .page > #quartz-body { display: block; max-width: 1380px; margin: auto; padding: 0 clamp(1rem,3vw,2.5rem); }
-body[data-slug="atlas"] .page > #quartz-body .sidebar { display: none; }
-body[data-slug="atlas"] .page > #quartz-body .center { width: 100%; min-width: 0; max-width: none; }
-body[data-slug="atlas"] .center > article { max-width: 72ch; }
+body[data-slug="lab/graph-blocks"] .page > #quartz-body { display: block; max-width: 1380px; margin: auto; padding: 0 clamp(1rem,3vw,2.5rem); }
+body[data-slug="lab/graph-blocks"] .page > #quartz-body .sidebar { display: none; }
+body[data-slug="lab/graph-blocks"] .page > #quartz-body .center { width: 100%; min-width: 0; max-width: none; }
+body[data-slug="lab/graph-blocks"] .center > article { max-width: 72ch; }
 .xiaoshi-atlas { --atlas-ink: #2b3d4b; --atlas-muted: #657781; --atlas-paper: #fffdf8; --atlas-border: #dbe1de; position: relative; color: var(--atlas-ink); margin: 1.3rem auto 2.5rem; border: 1px solid var(--atlas-border); border-radius: 1.1rem; background: var(--atlas-paper); box-shadow: 0 12px 36px #14283510; overflow: hidden; }
 .atlas-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .9rem 1.4rem; padding: 1rem 1.2rem; border-bottom: 1px solid var(--atlas-border); }
 .atlas-heading { display: flex; gap: .55rem; align-items: center; font-size: 1.1rem; }
@@ -302,7 +320,7 @@ LegoMap.afterDOMLoaded = `
     function reset(node,updateUrl=false){
       origin=node;selected=node.id;placed=new Map([[node.id,{id:node.id,q:0,r:0,parent:null,depth:0}]]);occupied=new Set([keyAt(0,0)]);newItems=new Set([node.id]);
       expand(node.id,16);render();describe(node);
-      if(updateUrl)history.replaceState(history.state,'',(document.body.dataset.basepath||'')+'/atlas?from='+encodeURIComponent(node.type==='tag'?node.slug:node.id));
+      if(updateUrl)history.replaceState(history.state,'',(document.body.dataset.basepath||'')+'/lab/graph-blocks?from='+encodeURIComponent(node.type==='tag'?node.slug:node.id));
       results.hidden=true;
     }
     function searchNow(){

@@ -8,8 +8,14 @@ import { QuartzComponent } from "./types"
 // Keep the plugin installed as-is; fail the build if its script changes.
 const point =
   'U.circle(0,0,Tu),U.fill({color:De?He:le}),De&&U.stroke({width:2,color:ue}),U.eventMode="static"'
-const dragRadius = 'if(K<gu+5)return v'
-const renderLoop = 'var se=!1;function ce(){'
+const dragRadius = "if(K<gu+5)return v"
+const renderLoop = "var se=!1;function ce(){"
+// The graph's qe() enlarges the active label but never restores its alpha when
+// the pointer leaves. Zoom happens to reset that alpha, which made titles stick
+// until the next scroll. Restore the same alpha used by its zoom handler.
+const labelScale =
+  "_u===A.simulationData.id?(A.label.alpha=1,A.label.scale.set(l)):A.label.scale.set(i)"
+const dispose = "function(){se=!0,au.stop();try{Z.destroy(!0)}catch{}}"
 
 const reliableHover = `
 var graphHoverTip=document.createElement("div"),graphHoverActive=null;
@@ -18,13 +24,13 @@ graphHoverTip.setAttribute("role","status");
 graphHoverTip.hidden=!0;
 d.appendChild(graphHoverTip);
 function graphHoverHide(){
-  if(graphHoverActive!==null){graphHoverActive=null;Wu(null);Eu||Au()}
+  if(graphHoverActive!==null){graphHoverActive=null;Wu(null);Au()}
   graphHoverTip.hidden=!0;
 }
 function graphHoverMove(event){
-  if(Eu)return;
+  if(Eu){graphHoverHide();return}
   var box=Z.canvas.getBoundingClientRect();
-  if(!box.width||!box.height)return;
+  if(!box.width||!box.height){graphHoverHide();return}
   var closest=null,best=18*18;
   for(var k=0;k<L.length;k++){
     var item=L[k].simulationData;
@@ -49,8 +55,15 @@ function graphHoverMove(event){
   graphHoverTip.style.left=Math.max(8,left)+"px";
   graphHoverTip.style.top=Math.max(8,top)+"px";
 }
-Z.canvas.addEventListener("pointermove",graphHoverMove,{capture:true,passive:true});
-Z.canvas.addEventListener("pointerleave",graphHoverHide,{capture:true,passive:true});
+var graphHoverAbort=new AbortController();
+var graphHoverOptions={capture:true,passive:true,signal:graphHoverAbort.signal};
+Z.canvas.addEventListener("pointermove",graphHoverMove,graphHoverOptions);
+Z.canvas.addEventListener("pointerleave",graphHoverHide,graphHoverOptions);
+d.addEventListener("pointerleave",graphHoverHide,graphHoverOptions);
+document.addEventListener("pointermove",function(event){
+  if(!Z.canvas.contains(event.target))graphHoverHide();
+},graphHoverOptions);
+window.addEventListener("blur",graphHoverHide,{signal:graphHoverAbort.signal});
 `
 
 export function improveGraph(layout: {
@@ -67,12 +80,31 @@ export function improveGraph(layout: {
         visited.add(component)
         const script = component.afterDOMLoaded
         if (typeof script !== "string" || !script.includes(point)) continue
-        if (!script.includes(dragRadius) || !script.includes(renderLoop)) {
+        if (
+          !script.includes(dragRadius) ||
+          !script.includes(renderLoop) ||
+          !script.includes(labelScale) ||
+          !script.includes(dispose)
+        ) {
           throw new Error("Graph plugin changed: review the hover improvement before building")
         }
         component.afterDOMLoaded = script
-          .replace(point, point.replace('U.eventMode="static"', 'U.hitArea=new o.Circle(0,0,Math.max(Tu,12)),U.eventMode="static"'))
-          .replace(dragRadius, 'if(K<Math.max(gu+5,12))return v')
+          .replace(
+            point,
+            point.replace(
+              'U.eventMode="static"',
+              'U.hitArea=new o.Circle(0,0,Math.max(Tu,12)),U.eventMode="static"',
+            ),
+          )
+          .replace(dragRadius, "if(K<Math.max(gu+5,12))return v")
+          .replace(
+            labelScale,
+            "_u===A.simulationData.id?(A.label.alpha=1,A.label.scale.set(l)):(A.label.alpha=Math.max((P.k*Me-1)/3.75,0),A.label.scale.set(i))",
+          )
+          .replace(
+            dispose,
+            "function(){graphHoverAbort.abort();graphHoverTip.remove();se=!0,au.stop();try{Z.destroy(!0)}catch{}}",
+          )
           .replace(renderLoop, reliableHover + renderLoop)
         patched++
       }

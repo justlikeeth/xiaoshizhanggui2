@@ -122,7 +122,7 @@ function setupGraphModes() {
     const toolbar = document.createElement('div');
     toolbar.className = 'graph-mode-toolbar';
     toolbar.innerHTML = '<span>图谱范围</span><button type="button" data-mode="near" aria-pressed="true">本页关联</button><button type="button" data-mode="all" aria-pressed="false">全站概览</button><button type="button" data-labels="all" aria-pressed="false">显示全部标题</button>';
-    const atlasUrl = (document.body.dataset.basepath || '') + '/atlas?from=' + encodeURIComponent(document.body.dataset.slug || '');
+    const atlasUrl = (document.body.dataset.basepath || '') + '/lab/graph-blocks?from=' + encodeURIComponent(document.body.dataset.slug || '');
     const atlasLink = document.createElement('a');
     atlasLink.href = atlasUrl;
     atlasLink.textContent = '从本页拼积木图 →';
@@ -172,7 +172,7 @@ document.addEventListener('xiaoshigraphhover', (event) => {
   const link = outer?.querySelector('.graph-mode-toolbar a');
   const slug = event.detail?.slug;
   if (!link || !slug) return;
-  link.href = (document.body.dataset.basepath || '') + '/atlas?from=' + encodeURIComponent(slug);
+  link.href = (document.body.dataset.basepath || '') + '/lab/graph-blocks?from=' + encodeURIComponent(slug);
   link.textContent = '从这个节点拼积木图 →';
 });
 if (document.readyState === 'loading') {
