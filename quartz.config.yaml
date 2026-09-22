@@ -176,17 +176,18 @@ plugins:
         depth: 1
         showTags: true
         focusOnHover: true
-        linkDistance: 45
+        linkDistance: 30
         # Keep long diary titles visible only when pointing at a node.
         opacityScale: 0.25
       globalGraph:
-        # Enlarge the current page's direct links and tags; avoid 400+ unlabeled dots.
+        # Start with this page's links and tags; the toolbar can open the full graph.
         depth: 1
         showTags: true
         enableRadial: false
-        linkDistance: 60
-        repelForce: 0.7
-        fontSize: 0.8
+        linkDistance: 32
+        repelForce: 0.5
+        centerForce: 0.3
+        fontSize: 0.65
         opacityScale: 0.25
     layout:
       position: right

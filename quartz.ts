@@ -8,6 +8,8 @@ import { ProcessedContent } from "./quartz/plugins/vfile"
 import { QuartzEmitterPluginInstance } from "./quartz/plugins/types"
 import { PageTypeDispatcher } from "./quartz/plugins/pageTypes/dispatcher"
 import RelatedReading from "./quartz/components/RelatedReading"
+import { improveGraph } from "./quartz/components/improveGraph"
+import LegoMap from "./quartz/components/LegoMap"
 
 const ITEMS_PER_SECTION = 30
 const CONTENT_SECTIONS = /^(?:diary|posts|thoughts|dict|podcasts|transcripts|wiki)\//
@@ -156,9 +158,12 @@ const config = await loadQuartzConfig()
 config.plugins.emitters.push(editorialRSS)
 const layout = await loadQuartzLayout()
 layout.defaults.right = [RelatedReading, ...(layout.defaults.right ?? [])]
+layout.defaults.afterBody = [LegoMap, ...(layout.defaults.afterBody ?? [])]
 for (const pageLayout of Object.values(layout.byPageType)) {
   pageLayout.right = [RelatedReading, ...(pageLayout.right ?? layout.defaults.right.slice(1))]
+  pageLayout.afterBody = [LegoMap, ...(pageLayout.afterBody ?? layout.defaults.afterBody.slice(1))]
 }
+improveGraph(layout)
 config.plugins.emitters = config.plugins.emitters.map((emitter) =>
   emitter.name === "PageTypeDispatcher"
     ? PageTypeDispatcher({ defaults: layout.defaults, byPageType: layout.byPageType })

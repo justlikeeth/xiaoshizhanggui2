@@ -104,7 +104,11 @@ RelatedReading.css = `
 .graph-mode-toolbar span { color: var(--gray); font-size: .83rem; margin-right: .2rem; }
 .graph-mode-toolbar button { border: 1px solid var(--lightgray); border-radius: .4rem; padding: .28rem .55rem; background: var(--light); color: var(--dark); font-size: .83rem; cursor: pointer; }
 .graph-mode-toolbar button[aria-pressed="true"] { background: var(--secondary); border-color: var(--secondary); color: var(--light); }
-@media (max-width: 600px) { .graph-mode-toolbar { top: 2vh; } .graph-mode-toolbar span { display: none; } }
+.graph-mode-toolbar a { color: var(--secondary); font-size: .83rem; margin-left: .25rem; }
+.graph-hover-title { position: absolute; z-index: 3; bottom: .7rem; left: .7rem; max-width: min(90%, 38rem); padding: .4rem .65rem; border: 1px solid var(--lightgray); border-radius: .35rem; background: var(--light); color: var(--dark); box-shadow: 0 2px 9px #0002; font-size: .9rem; line-height: 1.4; overflow-wrap: anywhere; pointer-events: none; }
+.graph-hover-title[hidden] { display: none; }
+.graph-container, .global-graph-container { position: relative; }
+@media (max-width: 600px) { .graph-mode-toolbar { top: 2vh; flex-wrap: wrap; justify-content: center; width: min(94vw, 26rem); white-space: normal; } .graph-mode-toolbar span { display: none; } }
 `
 
 RelatedReading.afterDOMLoaded = `
@@ -116,7 +120,7 @@ function setupGraphModes() {
 
     const toolbar = document.createElement('div');
     toolbar.className = 'graph-mode-toolbar';
-    toolbar.innerHTML = '<span>图谱范围</span><button type="button" data-mode="near" aria-pressed="true">本页关联</button><button type="button" data-mode="all" aria-pressed="false">全站概览</button><button type="button" data-labels="all" aria-pressed="false">显示全部标题</button>';
+    toolbar.innerHTML = '<span>图谱范围</span><button type="button" data-mode="near" aria-pressed="true">本页关联</button><button type="button" data-mode="all" aria-pressed="false">全站概览</button><button type="button" data-labels="all" aria-pressed="false">显示全部标题</button><a href="/atlas">积木地图 →</a>';
     toolbar.addEventListener('click', (event) => {
       // The graph closes on outside clicks; keep clicks on the controls inside.
       event.stopPropagation();
@@ -125,7 +129,9 @@ function setupGraphModes() {
       if (button.dataset.labels === 'all') {
         const showing = button.getAttribute('aria-pressed') !== 'true';
         const settings = JSON.parse(graph.dataset.cfg || '{}');
-        settings.opacityScale = showing ? 1 : 0.25;
+        // Quartz 0.1.0 computes alpha as (zoom * opacityScale - 1) / 3.75.
+        // At the initial zoom, 1 is fully transparent; 5 makes it visible.
+        settings.opacityScale = showing ? 5 : 0.25;
         graph.dataset.cfg = JSON.stringify(settings);
         button.setAttribute('aria-pressed', String(showing));
         button.textContent = showing ? '仅悬停显示标题' : '显示全部标题';
@@ -136,7 +142,7 @@ function setupGraphModes() {
       const all = button.dataset.mode === 'all';
       const settings = JSON.parse(graph.dataset.cfg || '{}');
       settings.depth = all ? -1 : 1;
-      settings.showTags = !all;
+      settings.showTags = true;
       settings.enableRadial = false;
       graph.dataset.cfg = JSON.stringify(settings);
       toolbar.querySelectorAll('button[data-mode]').forEach((item) => {
