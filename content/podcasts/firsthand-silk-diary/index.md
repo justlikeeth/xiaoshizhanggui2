@@ -26,7 +26,7 @@ description: 《丝绸厂三代接班日记》是一线实战笔记：不剪辑�
 
 巅峰产生虚伪的拥护，黄昏见证虔诚的信徒。时间将见证一切。
 
-- 共 **55** 集
+- 共 **85** 集
 - RSS：`https://feed.xyzfm.space/cwf8r3mlgftp`
 - Apple Podcasts：https://podcasts.apple.com/cn/podcast/id6801034180
 
@@ -89,6 +89,37 @@ description: 《丝绸厂三代接班日记》是一线实战笔记：不剪辑�
 - [[Vol.52 新市古镇的一把“不求人”：AI重新发现了手工的价值|Vol.52 新市古镇的一把“不求人”]]　`2026-04-10` ｜ 00:11:09 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6aaaa9d19d326477816a3a32)
 - [[Vol.53 晒莨厂问我：你怎么这么懂香云纱？|Vol.53 晒莨厂问我]]　`2026-04-21` ｜ 00:01:34 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6aaaab079d326477816a3ac8)
 - [[Vol.54 《重构丝绸》创世刊：从“为什么买丝绸”到“界面论”|Vol.54 《重构丝绸》创世刊]]　`2026-04-25` ｜ 00:10:21 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6aaaabe2051af796b9e94686)
+-  [[Vol.55 新中式年前爆单：排单到过年，春装要提前抢|Vol.55 新中式年前爆单]]　`2024-01-21` ｜ 00:02:01 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab35be293d5eb3bdc79a3ab)
+- [[Vol.56 想给奶奶买件衣服，却找不到一家中老年服装店|Vol.56 想给奶奶买件衣服，却找不到一家中老年服装店]]　`2024-02-18` ｜ 00:02:06 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab35c3e93d5eb3bdc79a3c7)
+- [[Vol.57 新中式春装可能短暂缺货：本该出的30个款只出了10个|Vol.57 新中式春装可能短暂缺货]]　`2024-04-04` ｜ 00:02:54 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab35d0693d5eb3bdc79a426)
+- [[Vol.58 拆解西湖大店茶芙巷的五个盈利方向|Vol.58 拆解西湖大店茶芙巷的五个盈利方向]]　`2024-05-10` ｜ 00:03:17 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab35d8ff04646b3a955d06b)
+- [[Vol.59 一款我很喜欢、但注定卡在批发环节的衣服|Vol.59 一款我很喜欢、但注定卡在批发环节的衣服]]　`2024-05-11` ｜ 00:01:50 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab35dee93d5eb3bdc79a491)
+- [[Vol.60 二批减少的恶果，开始轮到一批承受了|Vol.60 二批减少的恶果，开始轮到一批承受了]]　`2024-05-13` ｜ 00:01:56 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab35e4cf04646b3a955d0c9)
+- [[Vol.61 女装实体店一年赚多少钱算正常？十来万已经很好了|Vol.61 女装实体店一年赚多少钱算正常？十来万已经很好了]]　`2024-05-15` ｜ 00:01:24 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab35fd5f04646b3a955d16d)
+- [[Vol.62 一批老板开款的两难：好产品和现有渠道之间的矛盾|Vol.62 一批老板开款的两难]]　`2024-05-19` ｜ 00:01:05 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36868f04646b3a955d5ca)
+- [[Vol.63 一件羽绒服的二十年：为什么价格涨不过通货膨胀|Vol.63 一件羽绒服的二十年]]　`2024-05-20` ｜ 00:00:41 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab3689e93d5eb3bdc79a98b)
+- [[Vol.64 要“在仓现货”又要“独家销售”，厂家为什么做不到|Vol.64 要“在仓现货”又要“独家销售”，厂家为什么做不到]]　`2024-06-05` ｜ 00:00:50 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36955f04646b3a955d643)
+- [[Vol.65 批发老链路成立的两个条件，今天都不存在了|Vol.65 批发老链路成立的两个条件，今天都不存在了]]　`2024-06-08` ｜ 00:01:52 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36986f04646b3a955d66a)
+- [[Vol.66 一批、二批、工厂三方利益摆不平：成本只会转移，不会消失|Vol.66 一批、二批、工厂三方利益摆不平]]　`2024-06-13` ｜ 00:01:07 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab369b6f04646b3a955d6a0)
+- [[Vol.67 从1件到1万件：下单数量如何决定单件生产成本|Vol.67 从1件到1万件]]　`2024-06-18` ｜ 00:07:17 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab369edf04646b3a955d6c7)
+- [[Vol.68 二批大量倒闭之后：一批市场正在散客化|Vol.68 二批大量倒闭之后]]　`2024-06-19` ｜ 00:01:38 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36a4b93d5eb3bdc79aa8f)
+- [[Vol.69 翻《新中国丝绸史记》：第一页就是杭州的丝织厂|Vol.69 翻《新中国丝绸史记》]]　`2024-06-21` ｜ 00:00:38 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36ae5f04646b3a955d759)
+- [[Vol.70 我们是一家只比个体户好一点的小公司：老板的一天|Vol.70 我们是一家只比个体户好一点的小公司]]　`2024-06-21` ｜ 00:04:39 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36b5493d5eb3bdc79ab04)
+- [[Vol.71 四季青现场没人了：市场存在的意义还剩多少|Vol.71 四季青现场没人了]]　`2024-06-22` ｜ 00:00:52 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36bf1f04646b3a955d7c3)
+- [[Vol.72 我为什么不打价格战：源头厂家做直播的诱惑与底线|Vol.72 我为什么不打价格战]]　`2025-04-07` ｜ 00:03:34 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36c8e93d5eb3bdc79ab96)
+- [[Vol.73 小单快返时代，6月就不出新款说不通|Vol.73 小单快返时代，6月就不出新款说不通]]　`2025-06-21` ｜ 00:03:06 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36df0f04646b3a955d8d2)
+- [[Vol.74 退货率80%以上的女装电商：预售是唯一活路|Vol.74 退货率80%以上的女装电商]]　`2025-06-22` ｜ 00:04:16 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab36fa6f04646b3a955da06)
+- [[Vol.75 女装实体店租金结构巨变：为“门前客流”付的钱正在贬值|Vol.75 女装实体店租金结构巨变]]　`2025-06-23` ｜ 00:01:07 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab37051f04646b3a955daa9)
+- [[Vol.76 大店是结果不是起点：女装大店的因果不能搞反|Vol.76 大店是结果不是起点]]　`2025-06-23` ｜ 00:01:14 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab371d1f04646b3a955db70)
+- [[Vol.77 茶芙巷闭店与良木礼现象：千平大店的两种玩法|Vol.77 茶芙巷闭店与良木礼现象]]　`2025-07-04` ｜ 00:05:29 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab3725d93d5eb3bdc79aeea)
+- [[Vol.78 西湖名片的起点：池塘上的那间小办公室|Vol.78 西湖名片的起点]]　`2025-09-09` ｜ 00:00:52 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab372d193d5eb3bdc79af17)
+- [[Vol.79 买家到底要1000块的好衣服，还是800块的将就|Vol.79 买家到底要1000块的好衣服，还是800块的将就]]　`2025-09-24` ｜ 00:01:45 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab37328f04646b3a955dc07)
+- [[Vol.80 到底什么是“一批”：这个词把我搞浑了|Vol.80 到底什么是“一批”]]　`2025-09-25` ｜ 00:03:09 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab3739d93d5eb3bdc79afa1)
+- [[Vol.81 厂二代都在跳舞拍视频：B端生意需要跳吗|Vol.81 厂二代都在跳舞拍视频]]　`2025-12-23` ｜ 00:01:56 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab37478f04646b3a955dcd4)
+- [[Vol.82 山姆超市假想敌：基础款被巨头干崩时的差异化生存|Vol.82 山姆超市假想敌]]　`2025-12-23` ｜ 00:01:57 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab3750cf04646b3a955dd5a)
+- [[Vol.83 与其花几万请代运营，不如把钱交给AI|Vol.83 与其花几万请代运营，不如把钱交给AI]]　`2026-02-14` ｜ 00:09:49 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab3763c93d5eb3bdc79b149)
+- [[Vol.84 真实的短视频拍起来：走到哪拍到哪|Vol.84 真实的短视频拍起来]]　`2026-02-17` ｜ 00:01:35 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab376fcf04646b3a955de6b)
+
 
 
 另注：本档栏目Vol.00-Vol.11为了不浪费长视频而制作，Vol.12及以后小施掌柜学会了用workbuddy智能体+docker+飞书等结合快速出语音和逐字稿、带时间轴的稿件，此栏目中的文案为整理结构化后的产物，录制时基本是视频为主体，语音播客和shownotes为副产物，因此不同媒介表达方式会有不同，采用时需注意这些背景。
