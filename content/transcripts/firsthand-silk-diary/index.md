@@ -8,7 +8,7 @@ description: "《丝绸厂三代接班日记》口述全文转写稿，逐集对
 
 《丝绸厂三代接班日记》的口述全文转写稿（机器转写底稿删去语气词与明显重复口误，未重新听音）。
 
-- 共 **74** 篇
+- 共 **75** 篇
 - 对应单集页：[丝绸厂三代接班日记 | 小施掌柜](../../podcasts/firsthand-silk-diary/index.md)
 
 ## 全文列表
@@ -87,3 +87,4 @@ description: "《丝绸厂三代接班日记》口述全文转写稿，逐集对
 - [[2025-12-23-vol82|Vol.82 山姆超市假想敌]]　`2025-12-23` ｜ 00:01:57 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab3750cf04646b3a955dd5a)
 - [[2026-02-14-vol83|Vol.83 与其花几万请代运营，不如把钱交给AI]]　`2026-02-14` ｜ 00:09:49 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab3763c93d5eb3bdc79b149)
 - [[2026-02-17-vol84|Vol.84 真实的短视频拍起来]]　`2026-02-17` ｜ 00:01:35 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab376fcf04646b3a955de6b)
+- [[2026-01-15-vol85|Vol.85 对话秦丝勇哥]]　`2026-01-15` ｜ 01:22:03 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab377ff93d5eb3bdc79b23a)

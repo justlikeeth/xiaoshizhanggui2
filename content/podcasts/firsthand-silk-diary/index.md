@@ -119,7 +119,8 @@ description: 《丝绸厂三代接班日记》是一线实战笔记：不剪辑�
 - [[Vol.82 山姆超市假想敌：基础款被巨头干崩时的差异化生存|Vol.82 山姆超市假想敌]]　`2025-12-23` ｜ 00:01:57 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab3750cf04646b3a955dd5a)
 - [[Vol.83 与其花几万请代运营，不如把钱交给AI|Vol.83 与其花几万请代运营，不如把钱交给AI]]　`2026-02-14` ｜ 00:09:49 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab3763c93d5eb3bdc79b149)
 - [[Vol.84 真实的短视频拍起来：走到哪拍到哪|Vol.84 真实的短视频拍起来]]　`2026-02-17` ｜ 00:01:35 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab376fcf04646b3a955de6b)
-
+- [[Vol.85 对话秦丝勇哥：老板IP的价值怎么算，AI怎样真正帮服装人提效？|Vol.85 对话秦丝勇哥]]　`2026-01-15` ｜ 01:22:03 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ab377ff93d5eb3bdc79b23a)
+- 
 
 
 另注：本档栏目Vol.00-Vol.11为了不浪费长视频而制作，Vol.12及以后小施掌柜学会了用workbuddy智能体+docker+飞书等结合快速出语音和逐字稿、带时间轴的稿件，此栏目中的文案为整理结构化后的产物，录制时基本是视频为主体，语音播客和shownotes为副产物，因此不同媒介表达方式会有不同，采用时需注意这些背景。
