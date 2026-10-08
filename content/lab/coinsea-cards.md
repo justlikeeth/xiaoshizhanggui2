@@ -24,11 +24,11 @@ description: 这是一个跑在AI Passport上的虚拟币圈卡牌经营游戏�
 
 ## 现在的状态
 
-已提交 FoloToy 官方玩法社区审核（项目 ID 1038），还在 pending。通过后，任何有 AI Passport 的人都能直接刷上这个玩法。
+已通过 FoloToy 官方玩法社区审核并正式上架，任何有 AI Passport 的人都能直接刷上这个玩法。
 
+- 社区页面（可下载固件）：[ai-passport.folotoy.cn/plays/1038](https://ai-passport.folotoy.cn/plays/1038)
 - 硬件与开源固件：FoloToy AI Passport（[gitee.com/FoloToy/ai-passport](https://gitee.com/FoloToy/ai-passport)）
 - 官方玩法社区：[ai-passport.folotoy.cn](https://ai-passport.folotoy.cn)
-- 已通过 FoloToy 官方玩法社区审核并上架（ [![](https://ai-passport.folotoy.cn/favicon.ico) 社区页面](https://ai-passport.folotoy.cn/plays/1038)），任何有 AI Passport 的人都能直接刷上这个玩法。
 
 ## 为什么放在 Lab
 
