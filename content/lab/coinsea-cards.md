@@ -28,6 +28,7 @@ description: 这是一个跑在AI Passport上的虚拟币圈卡牌经营游戏�
 
 - 硬件与开源固件：FoloToy AI Passport（[gitee.com/FoloToy/ai-passport](https://gitee.com/FoloToy/ai-passport)）
 - 官方玩法社区：[ai-passport.folotoy.cn](https://ai-passport.folotoy.cn)
+- 已通过 FoloToy 官方玩法社区审核并上架（ [![](https://ai-passport.folotoy.cn/favicon.ico) 社区页面](https://ai-passport.folotoy.cn/plays/1038)），任何有 AI Passport 的人都能直接刷上这个玩法。
 
 ## 为什么放在 Lab
 
@@ -37,4 +38,4 @@ description: 这是一个跑在AI Passport上的虚拟币圈卡牌经营游戏�
 
 *封面为 AI 生成示意图，非实机截图。*
 
-小施掌柜注：游戏为vibe coding产物，以上介绍也是。
+【小施掌柜注：游戏为vibe coding产物，以上介绍也是。】
