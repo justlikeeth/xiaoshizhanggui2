@@ -26,7 +26,7 @@ description: 《丝绸厂三代接班日记》是一线实战笔记：不剪辑�
 
 巅峰产生虚伪的拥护，黄昏见证虔诚的信徒。时间将见证一切。
 
-- 共 **207** 集
+- 共 **214** 集
 - RSS：`https://feed.xyzfm.space/cwf8r3mlgftp`
 - Apple Podcasts：https://podcasts.apple.com/cn/podcast/id6801034180
 
@@ -243,5 +243,12 @@ description: 《丝绸厂三代接班日记》是一线实战笔记：不剪辑�
 - [[podcasts/firsthand-silk-diary/Vol.204 兰桂坊附近随拍|Vol.204 兰桂坊附近随拍]]　`2026-10-24` ｜ 00:00:32 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ae89b7bc96c8942ec163d3e)
 - [[podcasts/firsthand-silk-diary/Vol.205 深圳南油怪现象：城市在停滞，市场却在扩张|Vol.205 深圳南油怪现象：城市在停滞，市场却在扩张]]　`2026-10-26` ｜ 00:03:22 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ae89bea97726cd4675bb03a)
 - [[podcasts/firsthand-silk-diary/Vol.206 深圳展会复盘：我们低估了短视频|Vol.206 深圳展会复盘：我们低估了短视频]]　`2026-10-29` ｜ 00:04:06 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6ae89ef197726cd4675bb23f)
+- [[podcasts/firsthand-silk-diary/Vol.207 尾货市场火了，想长期做的女装店要不要去拿货？|Vol.207 尾货市场火了，想长期做的女装店要不要去拿货？]]　`2026-11-01` ｜ 00:04:22 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6b0591c901b0ab432eddc73a)
+- [[podcasts/firsthand-silk-diary/Vol.208 展馆外比我们村还村，展馆里来了各个国家的人|Vol.208 展馆外比我们村还村，展馆里来了各个国家的人]]　`2026-11-03` ｜ 00:01:32 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6b05923644e24a385c031aa2)
+- [[podcasts/firsthand-silk-diary/Vol.209 杭州降温晚了两周，做衣服的四条时间线怎么排？|Vol.209 杭州降温晚了两周，做衣服的四条时间线怎么排？]]　`2026-11-05` ｜ 00:04:08 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6b05928244e24a385c031ae1)
+- [[podcasts/firsthand-silk-diary/Vol.210 厂里一张白板，我把货盘、短视频和 AI 写到了一起|Vol.210 厂里一张白板，我把货盘、短视频和 AI 写到了一起]]　`2026-11-08` ｜ 00:03:28 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6b0592bd01b0ab432eddc833)
+- [[podcasts/firsthand-silk-diary/Vol.211 厂里聊了十几分钟，我到第二天早上还在生气|Vol.211 厂里聊了十几分钟，我到第二天早上还在生气]]　`2026-11-13` ｜ 00:06:50 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6b0593ad44e24a385c031c6a)
+- [[podcasts/firsthand-silk-diary/Vol.212 11 月就得排到 3 月：倒着算春节前后的产能|Vol.212 11 月就得排到 3 月：倒着算春节前后的产能]]　`2026-11-19` ｜ 00:00:30 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6b05956f01b0ab432eddcbf1)
+- [[podcasts/firsthand-silk-diary/Vol.213 从 APEC 的围巾到杭州首届历史经典产业博览会，我又想起了当年 G20|Vol.213 从 APEC 的围巾到杭州首届历史经典产业博览会，我又想起了当年 G20]]　`2026-11-22` ｜ 00:00:59 ｜ [小宇宙](https://www.xiaoyuzhoufm.com/episode/6b0595c101b0ab432eddcc37)
 
 另注：本档栏目Vol.00-Vol.11为了不浪费长视频而制作，Vol.12及以后小施掌柜学会了用workbuddy智能体+docker+飞书等结合快速出语音和逐字稿、带时间轴的稿件，此栏目中的文案为整理结构化后的产物，录制时基本是视频为主体，语音播客和shownotes为副产物，因此不同媒介表达方式会有不同，采用时需注意这些背景。
